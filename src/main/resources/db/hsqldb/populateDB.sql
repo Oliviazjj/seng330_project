@@ -1,3 +1,7 @@
+INSERT INTO users VALUES (1, 'admin', 'admin');
+INSERT INTO users VALUES (2, 'op', 'po');
+
+
 INSERT INTO food VALUES (1, 'banana', '2017-09-07', 'vegetable', 20);
 INSERT INTO food VALUES (2, 'tomato', '2017-09-07', 'fruit', 20);
 INSERT INTO food VALUES (3, 'potato', '2017-09-07', 'vegetable', 20);
