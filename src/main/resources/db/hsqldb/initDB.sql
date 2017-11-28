@@ -5,6 +5,24 @@ DROP TABLE employeeShifts IF EXISTS;
 DROP TABLE employEvents IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE employees IF EXISTS;
+DROP TABLE inventory IF EXISTS;
+DROP TABLE food IF EXISTS;
+
+CREATE TABLE food (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name       VARCHAR(30),
+  expire_date DATE,
+  type       VARCHAR(30),
+  amount INTEGER NOT NULL
+);
+
+CREATE TABLE inventory (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name       VARCHAR(30),
+  purchase_date DATE,
+  type   VARCHAR(30) NOT NULL,
+  amount INTEGER NOT NULL
+);
 
 
 CREATE TABLE contacts (

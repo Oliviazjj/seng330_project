@@ -15,13 +15,13 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import java.util.Collection;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.Contact;
-import org.springframework.samples.petclinic.model.Contacts;
+import org.springframework.samples.petclinic.model.Food;
 import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.service.ClinicService;
@@ -39,58 +39,45 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Arjen Poutsma
  */
 @Controller
-public class ContactController {
+public class FoodController {
 
-	private static final String VIEWS_CONTACT_CREATE_OR_UPDATE_FORM = "contacts/createOrUpdateContactForm";
+	private static final String VIEWS_FOOD_CREATE_OR_UPDATE_FORM = "foods/createOrUpdateFoodForm";
     private final ClinicService clinicService;
 
 
     @Autowired
-    public ContactController(ClinicService clinicService) {
+    public FoodController(ClinicService clinicService) {
         this.clinicService = clinicService;
     }
 
-    @RequestMapping(value = { "/contacts"})
-    public String showContactList(Map<String, Object> model) {
-        // Here we are returning an object of type 'Contacts' rather than a collection of Contact objects
+    @RequestMapping(value = { "/foods"})
+    public String showFoodList(Map<String, Object> model) {
+        // Here we are returning an object of type 'Foods' rather than a collection of Food objects
         // so it is simpler for Object-Xml mapping
-        Contacts contacts = new Contacts();
-        contacts.getContactList().addAll(this.clinicService.findContacts());
-        model.put("contacts", contacts);
-        return "contacts/contactList";
+        Collection<Food> foods = this.clinicService.findFood();
+        model.put("foods", foods);
+        return "foods/foodList";
     }
     
     
     
  // Spring MVC calls method loadEmployEventWithEmployeeShift(...) before initNewEmployeeShiftForm is called
-    @RequestMapping(value = "/contacts/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/foods/new", method = RequestMethod.GET)
     public String initCreationForm(Map<String, Object> model) {
-    		Contact contact = new Contact();
-        model.put("contact", contact);
-        return VIEWS_CONTACT_CREATE_OR_UPDATE_FORM;
+    		Food food = new Food();
+        model.put("food", food);
+        return VIEWS_FOOD_CREATE_OR_UPDATE_FORM;
     }
 
     // Spring MVC calls method loadEmployEventWithEmployeeShift(...) before processNewEmployeeShiftForm is called
-    @RequestMapping(value = "/contacts/new", method = RequestMethod.POST)
-    public String processContactForm(@Valid Contact contact, BindingResult result) {
+    @RequestMapping(value = "/foods/new", method = RequestMethod.POST)
+    public String processFoodForm(@Valid Food food, BindingResult result) {
         if (result.hasErrors()) {
-            return "contacts/createOrUpdateContactForm";
+            return "foods/createOrUpdateFoodForm";
         } else {
-            this.clinicService.saveContact(contact);
-            return "redirect:/contacts";
+            this.clinicService.saveFood(food);
+            return "redirect:/foods";
         }
-    }
-
-
-    @RequestMapping(value = { "/contacts.json", "/contacts.xml"})
-    public
-    @ResponseBody
-    Contacts showResourcesContactList() {
-        // Here we are returning an object of type 'Contacts' rather than a collection of Contact objects
-        // so it is simpler for JSon/Object mapping
-        Contacts contacts = new Contacts();
-        contacts.getContactList().addAll(this.clinicService.findContacts());
-        return contacts;
     }
 
 

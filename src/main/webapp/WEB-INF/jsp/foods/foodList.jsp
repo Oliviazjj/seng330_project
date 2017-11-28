@@ -5,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="contacts">
+<petclinic:layout pageName="foods">
     <h2>Food</h2>
 
     <table id="foodsTable" class="table table-striped">
@@ -24,19 +24,22 @@
                     <c:out value="${food.name} "/>
                 </td>
                 <td>
-                    <c:forEach var="specialty" items="${contact.specialties}">
-                        <c:out value="${specialty.name} "/>
-                    </c:forEach>
-                    <c:if test="${contact.nrOfSpecialties == 0}">none</c:if>
+                    <c:out value="${food.type} "/>
+                </td>
+                <td>
+                    <c:out value="${food.amount} "/>
+                </td>
+                <td>
+                    <c:out><value=<%=  %>fmt:formatDate value="${food.expireDate}" pattern="yyyy-MM-dd"/></c:out>
                 </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
     
-    <spring:url value="contacts/new" var="addUrl">
+    <spring:url value="foods/new" var="addUrl">
     </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Contact</a>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Food</a>
     
     
 

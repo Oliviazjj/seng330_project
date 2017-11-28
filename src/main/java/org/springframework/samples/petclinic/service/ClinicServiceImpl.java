@@ -10,10 +10,14 @@ import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.EmployEventType;
 import org.springframework.samples.petclinic.model.Contact;
 import org.springframework.samples.petclinic.model.EmployeeShift;
+import org.springframework.samples.petclinic.model.Food;
+import org.springframework.samples.petclinic.model.Inventory;
 import org.springframework.samples.petclinic.repository.EmployeeRepository;
 import org.springframework.samples.petclinic.repository.EmployEventRepository;
 import org.springframework.samples.petclinic.repository.ContactRepository;
 import org.springframework.samples.petclinic.repository.EmployeeShiftRepository;
+import org.springframework.samples.petclinic.repository.FoodRepository;
+import org.springframework.samples.petclinic.repository.InventoryRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,13 +34,18 @@ public class ClinicServiceImpl implements ClinicService {
     private ContactRepository contactRepository;
     private EmployeeRepository employeeRepository;
     private EmployeeShiftRepository employeeShiftRepository;
+    private FoodRepository foodRepository;
+    private InventoryRepository inventoryRepository;
+    
 
     @Autowired
-    public ClinicServiceImpl(EmployEventRepository employEventRepository, ContactRepository contactRepository, EmployeeRepository employeeRepository, EmployeeShiftRepository employeeShiftRepository) {
+    public ClinicServiceImpl(EmployEventRepository employEventRepository, ContactRepository contactRepository, EmployeeRepository employeeRepository, EmployeeShiftRepository employeeShiftRepository, FoodRepository foodRepository, InventoryRepository inventoryRepository) {
         this.employEventRepository = employEventRepository;
         this.contactRepository = contactRepository;
         this.employeeRepository = employeeRepository;
         this.employeeShiftRepository = employeeShiftRepository;
+        this.foodRepository = foodRepository;
+        this.inventoryRepository = inventoryRepository;
     }
 
     @Override
@@ -94,6 +103,30 @@ public class ClinicServiceImpl implements ClinicService {
     @Transactional
     public void saveContact(Contact contact) throws DataAccessException {
         contactRepository.save(contact);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Food> findFood() throws DataAccessException {
+        return foodRepository.findAll();
+    }
+    
+    @Override
+    @Transactional
+    public void saveFood(Food food) throws DataAccessException {
+        foodRepository.save(food);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Collection<Inventory> findInventory() throws DataAccessException {
+        return inventoryRepository.findAll();
+    }
+    
+    @Override
+    @Transactional
+    public void saveInventory(Inventory inventory) throws DataAccessException {
+        inventoryRepository.save(inventory);
     }
 
 	@Override

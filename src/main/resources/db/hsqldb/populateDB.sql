@@ -1,3 +1,14 @@
+INSERT INTO food VALUES (1, 'banana', '2017-09-07', 'vegetable', 20);
+INSERT INTO food VALUES (2, 'tomato', '2017-09-07', 'fruit', 20);
+INSERT INTO food VALUES (3, 'potato', '2017-09-07', 'vegetable', 20);
+
+
+INSERT INTO inventory VALUES (1, 'chair', '2017-09-07', 'equipment', 20);
+INSERT INTO inventory VALUES (2, 'table', '2017-09-07', 'equipment', 20);
+INSERT INTO inventory VALUES (3, 'red wine', '2017-09-07', 'wine', 20);
+
+
+
 INSERT INTO contacts VALUES (1, 'James', 'Carter');
 INSERT INTO contacts VALUES (2, 'Helen', 'Leary');
 INSERT INTO contacts VALUES (3, 'Linda', 'Douglas');

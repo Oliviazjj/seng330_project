@@ -23,6 +23,8 @@ import org.springframework.samples.petclinic.model.EmployEventType;
 import org.springframework.samples.petclinic.model.Contact;
 import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
+import org.springframework.samples.petclinic.model.Food;
+import org.springframework.samples.petclinic.model.Inventory;
 
 
 /**
@@ -44,6 +46,12 @@ public interface ClinicService {
 
     Collection<Contact> findContacts() throws DataAccessException;
     void saveContact(Contact contact) throws DataAccessException;
+    
+    Collection<Food> findFood() throws DataAccessException;
+    void saveFood(Food food) throws DataAccessException;
+    
+    Collection<Inventory> findInventory() throws DataAccessException;
+    void saveInventory(Inventory inventory) throws DataAccessException;
 
     void saveEmployee(Employee employee) throws DataAccessException;
 
