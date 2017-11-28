@@ -4,9 +4,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="login">
+<petclinic:layout2 pageName="login">
 
-<div class="container">
+<!-- <div class="container"> -->
+<div class="w3-col m6 w3-padding-large">
+    <br><br>
 
     <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
         <h2 class="form-heading">Log in</h2>
@@ -26,4 +28,4 @@
 
 </div>
 
-</petclinic:layout>
+</petclinic:layout2>
