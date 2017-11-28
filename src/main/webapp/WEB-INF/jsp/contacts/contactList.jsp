@@ -32,7 +32,9 @@
         </tbody>
     </table>
     
-     <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New EmployEvent</a>
+    <spring:url value="contacts/new" var="addUrl">
+    </spring:url>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Contact</a>
     
     
 

@@ -38,6 +38,10 @@
         <spring:param name="employeeId" value="${employee.id}"/>
     </spring:url>
     <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New EmployEvent</a>
+    
+     <spring:url value="new" var="addUrl">
+    </spring:url>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Employee</a>
 
     <br/>
     <br/>

@@ -77,16 +77,10 @@ public class ContactController {
             return "employEvents/createOrUpdateEmployeeShiftForm";
         } else {
             this.clinicService.saveContact(contact);
-            return "redirect:/contacts.html";
+            return "redirect:/contacts/contactList";
         }
     }
 
-    
-    @RequestMapping(value = "/employees/*/employEvents/{employEventId}/employeeShifts", method = RequestMethod.GET)
-    public String showEmployeeShifts(@PathVariable int employEventId, Map<String, Object> model) {
-        model.put("employeeShifts", this.clinicService.findEmployEventById(employEventId).getEmployeeShifts());
-        return "employeeShiftList";
-    }
 
     @RequestMapping(value = { "/contacts.json", "/contacts.xml"})
     public

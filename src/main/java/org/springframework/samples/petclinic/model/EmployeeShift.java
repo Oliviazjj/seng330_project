@@ -33,13 +33,13 @@ import java.util.Date;
  * @author Ken Krebs
  */
 @Entity
-@Table(name = "employeShifts")
+@Table(name = "employeeShifts")
 public class EmployeeShift extends BaseEntity {
 
     /**
      * Holds value of property date.
      */
-    @Column(name = "employeShift_date")
+    @Column(name = "employeeShift_date")
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date date;
