@@ -5,29 +5,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="foods">
+<petclinic:layout pageName="inventorys">
     <h2>Food</h2>
 
-    <table id="foodsTable" class="table table-striped">
+    <table id="inventorysTable" class="table table-striped">
         <thead>
         <tr>
             <th>Name</th>
             <th>Type</th>
             <th>Amount</th>
-            <th>Expire_date</th>
+            <th>Purchase_date</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${foods.foodList}" var="food">
+        <c:forEach items="${inventorys.inventoryList}" var="inventory">
             <tr>
                 <td>
-                    <c:out value="${food.name} "/>
+                    <c:out value="${inventory.name} "/>
                 </td>
                 <td>
-                    <c:out value="${food.type} "/>
+                    <c:out value="${inventory.type} "/>
                 </td>
                 <td>
-                    <c:out value="${food.amount} "/>
+                    <c:out value="${inventory.amount} "/>
                 </td>
                <%--  <td>
                     <fmt:formatDate value="${food.expireDate}" pattern="yyyy-MM-dd"/>
@@ -37,9 +37,9 @@
         </tbody>
     </table>
     
-    <spring:url value="foods/new" var="addUrl">
+    <spring:url value="inventorys/new" var="addUrl">
     </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Food</a>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Inventory</a>
     
     
 

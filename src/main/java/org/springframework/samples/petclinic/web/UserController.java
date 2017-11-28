@@ -54,6 +54,7 @@ public class UserController {
     public String loginPage(Map<String, Object> model) {
         return "users/login";
     }
+    
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginProcess(String username, String password, HttpServletRequest request, HttpSession session) {
@@ -64,23 +65,33 @@ public class UserController {
             return "users/login";
         } else {
             session.setAttribute("currentUser", user);
-            return "redirect:/";
+            return "auth/userInfoPage";
         }
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpSession session) {
         session.setAttribute("currentUser", null);
-        return "redirect:/";
+        return "redirect:/auth";
+    }
+    
+    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
+    public String UserInfoPage(Map<String, Object> model) {
+        return "auth/userInfoPage";
+    }
+    
+    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    public String Admin(Map<String, Object> model) {
+        return "auth/adminPage";
+    }
+    
+    @RequestMapping(value = "/admin", method = RequestMethod.POST)
+    public String AdminProcess(String username, String password, HttpServletRequest request, HttpSession session) {
+    		username = request.getParameter("username");
+        password = request.getParameter("password");
+        if(username=="admina123"&&password=="admin123") return "welcome";
+        else return "auth/adminPage";
     }
 
-    public User checkUser(String username, String password) {
-        if (username == "admin" && password == "admin") {
-            User a = new User();
-            a.setUsername("admin");
-            a.setPassword("admin");
-            return a;
-        }
-        return null;
-    }
+   
 }

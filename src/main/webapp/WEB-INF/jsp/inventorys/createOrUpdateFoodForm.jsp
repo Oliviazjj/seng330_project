@@ -6,23 +6,24 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="contacts">
+<petclinic:layout pageName="inventorys">
     <h2>
-        <c:if test="${contact['new']}">New </c:if> Contact
+        <c:if test="${food['inventory']}">New </c:if> Inventory
     </h2>
-    <form:form modelAttribute="contact" class="form-horizontal" id="add-food-form">
+    <form:form modelAttribute="inventory" class="form-horizontal" id="add-inventory-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="First Name" name="firstName"/>
-            <petclinic:inputField label="Last Name" name="lastName"/>
+            <petclinic:inputField label="Name" name="name"/>
+            <petclinic:inputField label="Type" name="type"/>
+            <petclinic:inputField label="Amount" name="amount"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <c:choose>
-                    <c:when test="${contact['new']}">
-                        <button class="btn btn-default" type="submit">Add Contact</button>
+                    <c:when test="${inventory['new']}">
+                        <button class="btn btn-default" type="submit">Add Inventory</button>
                     </c:when>
                     <c:otherwise>
-                        <button class="btn btn-default" type="submit">Update Contact</button>
+                        <button class="btn btn-default" type="submit">Update Inventory</button>
                     </c:otherwise>
                 </c:choose>
             </div>

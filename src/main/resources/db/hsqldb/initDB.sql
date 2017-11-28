@@ -8,6 +8,8 @@ DROP TABLE employees IF EXISTS;
 DROP TABLE inventory IF EXISTS;
 DROP TABLE food IF EXISTS;
 DROP TABLE users IF EXISTS;
+DROP TABLE events IF EXISTS;
+
 
 CREATE TABLE food (
   id         INTEGER IDENTITY PRIMARY KEY,
@@ -89,3 +91,17 @@ CREATE TABLE users (
   username  VARCHAR(50),
   password  VARCHAR(50)
 );
+
+CREATE TABLE events (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name       VARCHAR(30),
+  amountOfPeople INTEGER NOT NULL,
+  event_date DATE,
+  appetizer  VARCHAR(50),
+  entree  VARCHAR(50),
+  dessert  VARCHAR(50),
+  description  VARCHAR(50),
+  user_id   INTEGER NOT NULL
+);
+ALTER TABLE events ADD CONSTRAINT fk_events_users FOREIGN KEY (user_id) REFERENCES users (id);
+CREATE INDEX events_user_id ON events (user_id);

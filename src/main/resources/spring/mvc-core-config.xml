@@ -33,6 +33,7 @@
 
 
     <mvc:view-controller path="/auth" view-name="auth/welcomePage2"/>
+    <mvc:view-controller path="/" view-name="welcome"/>
 
     <!-- serve static resources (*.html, ...) from src/main/webapp/
     Required when both servlet-mapping is '/' and static resources need to be served -->

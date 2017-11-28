@@ -1,13 +1,6 @@
-<%@ tag trimDirectiveWhitespaces="true" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
-
-<%@ attribute name="pageName" required="true" %>
-<%@ attribute name="customScript" required="false" fragment="true"%>
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
-<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -18,14 +11,12 @@ h1,h2,h3,h4,h5,h6 {
     letter-spacing: 5px;
 }
 </style>
-</head>
-
 <body>
-
-<!-- Navbar (sit on top) -->
+ 
+ <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="http://localhost:9966/petclinic/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Login</a>
+    <a href="http://localhost:9966/petclinic/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Admin</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
       <a href="http://localhost:9966/petclinic/login" class="w3-bar-item w3-button">Login</a>
@@ -35,22 +26,39 @@ h1,h2,h3,h4,h5,h6 {
   </div>
 </div>
 
-<!--
-<div class="container-fluid">
-    <div class="container xd-container">
 
-
-    </div>
-</div>
--->
-
+<!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
-        <jsp:doBody/>
-</div>
 
-<petclinic:footer/>
-<jsp:invoke fragment="customScript" />
+  <!-- About Section -->
 
+	
+    <div class="w3-col m6 w3-padding-large">
+   </br>
+   </br>
+      <center><h1 class="w3-center">Login</h1><br></center>
+     <!-- System.out.println(request.getParameter("name")); 
+		Date date = new Date();-->
+
+<p> Hello and Welcome! Please enter your username and password to login to your account. </p>
+<form action="/admin" method="post">
+<p><font color="red">${errorMessage}</font></p>
+<tr>
+    Username: <td><input type='text' name='username' value=''></td>
+ </tr>
+ <tr>
+    <td>Password:</td>
+    <td><input type='password' name='password' /></td>
+ </tr>
+ <tr>
+    <td><input name="submit" type="submit" value="submit" /></td>
+</tr>
+      </table>
+      </br>
+      </br>
+</form>
 </body>
-
 </html>
+
+     
+    
