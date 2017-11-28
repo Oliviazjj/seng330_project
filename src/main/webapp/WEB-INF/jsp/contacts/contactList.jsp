@@ -6,22 +6,20 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="contacts">
-    <h2>Food</h2>
+    <h2>Veterinarians</h2>
 
-    <table id="foodsTable" class="table table-striped">
+    <table id="contactsTable" class="table table-striped">
         <thead>
         <tr>
             <th>Name</th>
-            <th>Type</th>
-            <th>Amount</th>
-            <th>Expire_date</th>
+            <th>Specialties</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${foods.foodList}" var="food">
+        <c:forEach items="${contacts.contactList}" var="contact">
             <tr>
                 <td>
-                    <c:out value="${food.name} "/>
+                    <c:out value="${contact.firstName} ${contact.lastName}"/>
                 </td>
                 <td>
                     <c:forEach var="specialty" items="${contact.specialties}">
