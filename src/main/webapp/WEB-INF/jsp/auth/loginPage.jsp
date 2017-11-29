@@ -56,7 +56,11 @@ h1,h2,h3,h4,h5,h6 {
       </table>
       </br>
       </br>
+<<<<<<< HEAD
       <a href = "/register">You New User?</a>
+=======
+      <a href = "/register">New User?</a>
+>>>>>>> 6f2630722bd98f5a5ea02a83ded195ade669139c
 </form>
 </body>
 </html>

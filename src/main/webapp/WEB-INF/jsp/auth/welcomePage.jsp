@@ -62,8 +62,13 @@ function carousel() {
     <div class="w3-col m6 w3-padding-large">
    	</br>
    	</br>
+<<<<<<< HEAD
       <h1><p align = "center">Welcome!</h1></p>
       <p align = "center"> Welcome to MealsOnWheels, a catering company that cares for its clients for everything from small social parties to weddings, office lunches, or large corporate events and everything in between.
+=======
+      <h1><p aligh = "center">Welcome!</h1></p>
+      <p align = "center"> Welcome to MealsOnWheels, a catering company that cares for its clients for everthing from small social parties to weddings, office lunches, or large corporate events and everthing in between.
+>>>>>>> 6f2630722bd98f5a5ea02a83ded195ade669139c
       Our team sets the highest standard of excellence in everything we do can ensure our clients a stress free experience when hosting or attending an event. Our staff are friendly, professional, and highly experienced with all levels of catering and event management. At MealsOnWheels we also offer an array of additional event coordination services such as venue rentals & bookings, equipment, cats, staff rental and everything needed to make your next catered event a success.</p>
  
 
