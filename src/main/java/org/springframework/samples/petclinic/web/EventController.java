@@ -54,18 +54,18 @@ public class EventController {
         this.clinicService = clinicService;
     }
 
-    @ModelAttribute("event")
-    public Event loadUserWithEvent(@PathVariable("userId") int userId) {
-        User user = this.clinicService.findUserById(userId);
-        Event event = new Event();
-        user.addEvent(event);
-        return event;
-    }
-    
-    @ModelAttribute("user")
-    public User findUser(@PathVariable("userId") int userId) {
-        return this.clinicService.findUserById(userId);
-    }
+//    @ModelAttribute("event")
+//    public Event loadUserWithEvent(@PathVariable("userId") int userId) {
+//        User user = this.clinicService.findUserById(userId);
+//        Event event = new Event();
+//        user.addEvent(event);
+//        return event;
+//    }
+//    
+//    @ModelAttribute("user")
+//    public User findUser(@PathVariable("userId") int userId) {
+//        return this.clinicService.findUserById(userId);
+//    }
 
     @InitBinder("user")
     public void initUserBinder(WebDataBinder dataBinder) {

@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${events.eventList}" var="event">
+        <c:forEach items="${events}" var="event">
             <tr>
                 <td><fmt:formatDate value="${event.eventDate}" pattern="yyyy-MM-dd"/></td>
                 <td><c:out value="${event.amountOfPeople}"/></td>
