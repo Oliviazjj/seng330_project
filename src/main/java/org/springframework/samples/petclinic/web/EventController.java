@@ -74,8 +74,9 @@ public class EventController {
 
 
     @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
-    public String initCreationForm(User user, ModelMap model) {
+    public String initCreationForm(@PathVariable("userId") int userId, ModelMap model) {
         Event event = new Event();
+        User user = this.clinicService.findUserById(userId);
         user.addEvent(event);
         model.put("event", event);
         return "auth/userInfoPage";
@@ -105,14 +106,14 @@ public class EventController {
     
     
     @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
-    public String initUpdateForm(@PathVariable("eventId") int eventId, ModelMap model) {
+    public String initUpdateForm(@PathVariable("userId") int userId, @PathVariable("eventId") int eventId, ModelMap model) {
         Event event = this.clinicService.findEventById(eventId);
         model.put("event", event);
         return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
     }
 
     @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.POST)
-    public String processUpdateForm(@Valid Event event, BindingResult result, User user, ModelMap model) {
+    public String processUpdateForm(@PathVariable("userId") int userId, @Valid Event event, BindingResult result, User user, ModelMap model) {
         if (result.hasErrors()) {
             model.put("event", event);
             return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;

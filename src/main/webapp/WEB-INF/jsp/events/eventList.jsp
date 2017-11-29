@@ -24,6 +24,7 @@
         <tbody>
         <c:forEach items="${events}" var="event">
             <tr>
+            		<td><c:out value="${event.name}"/></td>
                 <td><fmt:formatDate value="${event.eventDate}" pattern="yyyy-MM-dd"/></td>
                 <td><c:out value="${event.amountOfPeople}"/></td>
                 <td><c:out value="${event.appetizer}"/></td>
