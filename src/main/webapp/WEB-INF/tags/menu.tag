@@ -2,12 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 <%@ attribute name="name" required="true" rtexprvalue="true"
-              description="Name of the active menu: home, employees, contacts or events" %>
+              description="Name of the active menu: home, employees, contacts, events, foods and inventorys" %>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="<spring:url value="/" htmlEscape="true" />"><span></span></a>
+            <%-- <a class="navbar-brand" href="<spring:url value="/" htmlEscape="true" />"><span></span></a> --%>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
                 <span class="sr-only"><os-p>Toggle navigation</os-p></span>
                 <span class="icon-bar"></span>
@@ -28,15 +28,27 @@
                     <span>Find employees</span>
                 </petclinic:menuItem>
 
-                <petclinic:menuItem active="${name eq 'contacts'}" url="/contacts.html" title="veterinarians">
+                <petclinic:menuItem active="${name eq 'contacts'}" url="/contacts.html" title="contacts">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Contacts</span>
                 </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'events'}" url="/events"
-                            title="trigger a RuntimeException to see how it is handled">
-                    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                            title="events">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Events</span>
+                </petclinic:menuItem>
+                
+                <petclinic:menuItem active="${name eq 'foods'}" url="/foods"
+                            title="foods">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    <span>Food</span>
+                </petclinic:menuItem>
+                
+                <petclinic:menuItem active="${name eq 'inventorys'}" url="/inventorys"
+                            title="Inventorys">
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                    <span>Inventory</span>
                 </petclinic:menuItem>
 
             </ul>

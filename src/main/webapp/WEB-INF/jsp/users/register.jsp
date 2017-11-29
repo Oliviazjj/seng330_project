@@ -16,6 +16,7 @@
             <input name="username" type="text" class="form-control" placeholder="Username"
                    autofocus="true"/>
             <input name="password" type="password" class="form-control" placeholder="Password"/>
+            <input name="email" type="email" class="form-control" placeholder="Email"/>
             <span>${error}</span>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>

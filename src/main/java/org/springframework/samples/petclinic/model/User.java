@@ -28,11 +28,23 @@ public class User extends BaseEntity {
     @NotEmpty
     private String password;
     
+    @Column(name = "email")
+    @NotEmpty
+    private String email;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private Set<Event> events;
 
 
-    public void setUsername(String username) {
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setUsername(String username) {
         this.username = username;
     }
 

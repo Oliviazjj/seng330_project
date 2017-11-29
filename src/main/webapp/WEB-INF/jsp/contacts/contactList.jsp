@@ -7,13 +7,14 @@
 
 
 <petclinic:layout pageName="contacts">
-    <h2>Veterinarians</h2>
+    <h2>Contacts</h2>
 
     <table id="contactsTable" class="table table-striped">
         <thead>
         <tr>
             <th>Name</th>
             <th>Type</th>
+            <th>Email</th>
         </tr>
         </thead>
         <tbody>
@@ -27,6 +28,9 @@
                         <c:out value="${specialty.name} "/>
                     </c:forEach>
                     <c:if test="${contact.nrOfSpecialties == 0}">none</c:if>
+                </td>
+                <td>
+                    <c:out value="${contact.email}"/>
                 </td>
             </tr>
         </c:forEach>

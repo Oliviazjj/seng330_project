@@ -31,7 +31,8 @@ CREATE TABLE inventory (
 CREATE TABLE contacts (
   id         INTEGER IDENTITY PRIMARY KEY,
   first_name VARCHAR(30),
-  last_name  VARCHAR(30)
+  last_name  VARCHAR(30),
+  email VARCHAR(30)
 );
 CREATE INDEX contacts_last_name ON contacts (last_name);
 
@@ -89,7 +90,8 @@ CREATE INDEX employeeShifts_employEvent_id ON employeeShifts (employEvent_id);
 CREATE TABLE users (
   id          INTEGER IDENTITY PRIMARY KEY,
   username  VARCHAR(50),
-  password  VARCHAR(50)
+  password  VARCHAR(50),
+  email VARCHAR(30)
 );
 
 CREATE TABLE events (
