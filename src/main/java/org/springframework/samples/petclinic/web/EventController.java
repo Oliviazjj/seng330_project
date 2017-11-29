@@ -61,7 +61,7 @@ public class EventController {
 //        user.addEvent(event);
 //        return event;
 //    }
-//    
+//
 //    @ModelAttribute("user")
 //    public User findUser(@PathVariable("userId") int userId) {
 //        return this.clinicService.findUserById(userId);
@@ -74,16 +74,37 @@ public class EventController {
 
 
     @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
-    public String initCreationForm(@PathVariable("userId") int userId, ModelMap model) {
+    public String initCreationForm(@PathVariable("userId") int userId, ModelMap model, HttpSession session) {
+        User user = (User)session.getAttribute("currentUser");
+        if (user == null) {
+            return "redirect:/login";
+        }
+//        User user = this.clinicService.findUserById(userId);
+
         Event event = new Event();
-        User user = this.clinicService.findUserById(userId);
-        user.addEvent(event);
+//        user.addEvent(event);
         model.put("event", event);
+
+        Collection<Event> eventList = this.clinicService.findEventsByUserId(user.getId());
+        model.put("eventList", eventList);
         return "auth/userInfoPage";
     }
 
+    @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.POST)
+    public String submitCreationForm(@Valid Event event, BindingResult result, HttpSession session, ModelMap model) {
+        User user = (User)session.getAttribute("currentUser");
+        event.setUser(user);
+        if (result.hasErrors()) {
+            model.put("event", event);
+            return "userInfo";
+        } else {
+            this.clinicService.saveUserEvent(event);
+            return "redirect:/userInfo";
+        }
+    }
+
 //    @RequestMapping(value = "/events/new", method = RequestMethod.POST)
-//    public String processCreationForm(String name, String amountOfPeople, String eventDate,  String appetizer, 
+//    public String processCreationForm(String name, String amountOfPeople, String eventDate,  String appetizer,
 //    			String entree, String dessert, String description, HttpServletRequest request, HttpSession session) {
 //    		name = request.getParameter("username");
 //    		amountOfPeople = request.getParameter("amountOfPeople");
@@ -92,7 +113,7 @@ public class EventController {
 //    		entree = request.getParameter("entree");
 //    		dessert = request.getParameter("dessert");
 //    		description = request.getParameter("description");
-//    		
+//
 //        Event event = new Event(name, amountOfPeople, eventDate, appetizer, entree, dessert, description);
 //        this.clinicService.saveUserEvent(event);
 //        if (event == null) {
@@ -102,9 +123,9 @@ public class EventController {
 //            return "auth/userInfoPage";
 //        }
 //    }
-    
-    
-    
+
+
+
     @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable("userId") int userId, @PathVariable("eventId") int eventId, ModelMap model) {
         Event event = this.clinicService.findEventById(eventId);
@@ -123,14 +144,14 @@ public class EventController {
             return "redirect:/users/{userId}";
         }
     }
-    
+
     @RequestMapping(value = { "/events"}, method = RequestMethod.GET)
     public String showEventList(Map<String, Object> model) {
         Collection<Event> events = this.clinicService.findAllEvent();
         model.put("events", events);
         return "events/eventList";
     }
-    
-    
+
+
 
 }
