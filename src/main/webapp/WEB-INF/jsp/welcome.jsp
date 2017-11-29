@@ -3,7 +3,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<<<<<<< HEAD
 <html>
 
 <meta charset="UTF-8">
@@ -74,14 +73,3 @@ function carousel() {
       Our team sets the highest standard of excellence in everything we do can ensure our clients a stress free experience when hosting or attending an event. Our staff are friendly, professional, and highly experienced with all levels of catering and event management. At MealsOnWheels we also offer an array of additional event coordination services such as venue rentals & bookings, equipment, cats, staff rental and everything needed to make your next catered event a success.</p>
  
 
-=======
-<petclinic:layout pageName="home">
-    <h2><fmt:message key="welcome"/> - ${sessionScope.currentUser.username}</h2>
-    <div class="row">
-        <div class="col-md-12">
-            <spring:url value="/resources/images/pets.png" htmlEscape="true" var="petsImage"/>
-            <img class="img-responsive" src="${petsImage}"/>
-        </div>
-    </div>
-</petclinic:layout>
->>>>>>> 6f2630722bd98f5a5ea02a83ded195ade669139c
