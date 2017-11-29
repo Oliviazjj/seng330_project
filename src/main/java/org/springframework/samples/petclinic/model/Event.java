@@ -16,6 +16,7 @@ import javax.persistence.Table;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -28,7 +29,7 @@ import java.util.Set;
 @Table(name = "events")
 public class Event extends NamedEntity {
 
-	 @NotEmpty
+	 @NotNull
 	 @Column(name = "amountOfPeople")
 	 private int amountOfPeople;
 	
@@ -117,7 +118,7 @@ public class Event extends NamedEntity {
         return this.user;
     }
 
-    protected void setUser(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

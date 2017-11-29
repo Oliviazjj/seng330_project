@@ -61,14 +61,37 @@ public class EventController {
 
 
     @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
-    public String initCreationForm(@PathVariable("userId") int userId, ModelMap model) {
+    public String initCreationForm(@PathVariable("userId") int userId, ModelMap model, HttpSession session) {
+        User user = (User)session.getAttribute("currentUser");
+        if (user == null) {
+            return "redirect:/login";
+        }
+//        User user = this.clinicService.findUserById(userId);
+
         Event event = new Event();
-        User user = this.clinicService.findUserById(userId);
-        user.addEvent(event);
+//        user.addEvent(event);
         model.put("event", event);
+
+        Collection<Event> eventList = this.clinicService.findEventsByUserId(user.getId());
+        model.put("eventList", eventList);
         return "auth/userInfoPage";
     }
-    
+
+
+    @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.POST)
+    public String submitCreationForm(@Valid Event event, BindingResult result, HttpSession session, ModelMap model) {
+        User user = (User)session.getAttribute("currentUser");
+        event.setUser(user);
+        if (result.hasErrors()) {
+            model.put("event", event);
+            return "userInfo";
+        } else {
+            this.clinicService.saveUserEvent(event);
+            return "redirect:/userInfo";
+        }
+    }
+
+
     @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable("userId") int userId, @PathVariable("eventId") int eventId, ModelMap model) {
         Event event = this.clinicService.findEventById(eventId);
@@ -87,14 +110,14 @@ public class EventController {
             return "redirect:/users/{userId}";
         }
     }
-    
+
     @RequestMapping(value = { "/events"}, method = RequestMethod.GET)
     public String showEventList(Map<String, Object> model) {
         Collection<Event> events = this.clinicService.findAllEvent();
         model.put("events", events);
         return "events/eventList";
     }
-    
-    
+
+
 
 }

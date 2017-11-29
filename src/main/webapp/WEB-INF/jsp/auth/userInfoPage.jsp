@@ -1,3 +1,11 @@
+<%@ page session="false" trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -94,24 +102,76 @@ h1,h2,h3,h4,h5,h6 {
 
   <hr>
 
+<c:if test="${not empty eventList}">
+    <table id="employeesTable" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 100px;">Name</th>
+            <th style="width: 100px;">Amount of people</th>
+            <th style="width: 100px">Event Date</th>
+            <th style="width: 100px">Appetizer</th>
+            <th style="width: 100px">Entree</th>
+            <th style="width: 100px">Dessert</th>
+            <th style="width: 100px">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${eventList}" var="event">
+            <tr>
+                <td>
+                    <c:out value="${event.name} "/>
+                </td>
+                <td>
+                    <c:out value="${event.amountOfPeople}"/>
+                </td>
+                <td>
+                    <c:out value="${event.eventDate}"/>
+                </td>
+                <td>
+                    <c:out value="${event.appetizer}"/>
+                </td>
+                <td>
+                    <c:out value="${event.entree}"/>
+                </td>
+                <td>
+                    <c:out value="${event.dessert}"/>
+                </td>
+                <td>
+                    <c:out value="${event.description}"/>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</c:if>
+
+
   <!-- Contact Section -->
   <div class="w3-container w3-padding-64" id="contact">
     <h1>Book an Event</h1><br>
     <p>To book an event please fill out the following information. </p>
     <p class="w3-text-blue-grey w3-large"><b>MealsOnWheels, 1234 Fort Street, Victoria, BC</b></p>
     <p>You can also contact us by phone 123-456-7899 or email blah@hotmail.com</p>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="number" placeholder="How many people" required name="People"></p>
-      <p><input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required name="date" value="2017-11-16T20:00"></p>
-      <p><input class="w3-input w3-padding-16" type="Appetizer" placeholder="Choose an Appetizer" required name="Appetizer"></p>
-      <p><input class="w3-input w3-padding-16" type="Entree" placeholder="Choose an Entree" required name="Entree"></p>
-      <p><input class="w3-input w3-padding-16" type="Dessert" placeholder="Choose a Dessert" required name="Dessert"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required name="Message"></p>
-      <form action="/add-event" method="POST"> Please confirm your event: <inputname="eventName" type ="text"/></form>
+
+
+    <form:form action="${pageContext.request.contextPath}/3/events/new" modelAttribute="event" class="form-horizontal" id="add-employee-form">
+      <p><form:input class="w3-input w3-padding-16" type="text" placeholder="Name" required="required" name="Name" path="name" /></p>
+      <p><form:input class="w3-input w3-padding-16" type="number" placeholder="How many people" required="required" name="People" path="amountOfPeople"/></p>
+
+      <!--
+        <p><form:input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required="required" name="date" value="2017-11-16T20:00" path="eventDate"/></p>
+      -->
+      <petclinic:inputField label="Date" name="eventDate"/>
+
+      <p><form:input class="w3-input w3-padding-16" type="Appetizer" placeholder="Choose an Appetizer" required="required" name="Appetizer" path="appetizer"/></p>
+      <p><form:input class="w3-input w3-padding-16" type="Entree" placeholder="Choose an Entree" required="required" name="Entree" path="entree"/></p>
+      <p><form:input class="w3-input w3-padding-16" type="Dessert" placeholder="Choose a Dessert" required="required" name="Dessert" path="dessert" /></p>
+      <p><form:input class="w3-input w3-padding-16" type="text" placeholder="Message \ Special requirements" required="required" name="Message" path="description" /></p>
+
       <p><button class="w3-button w3-light-grey w3-section" type="submit">Book Event!</button></p>
-    </form>
+    </form:form>
   </div>
+
 </body>
 </html>
 
