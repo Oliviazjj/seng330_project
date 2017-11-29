@@ -20,6 +20,7 @@ import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.model.Event;
+import org.springframework.samples.petclinic.model.Inventory;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,7 @@ import javax.validation.Valid;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * @author Juergen Hoeller
@@ -42,7 +44,6 @@ import java.util.Date;
  * @author Arjen Poutsma
  */
 @Controller
-@RequestMapping("/{userId}")
 public class EventController {
 
     private static final String VIEWS_EVENTS_CREATE_OR_UPDATE_FORM = "events/createOrUpdateEventForm";
@@ -70,10 +71,9 @@ public class EventController {
     public void initUserBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
-    
 
 
-    @RequestMapping(value = "/events/new", method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
     public String initCreationForm(User user, ModelMap model) {
         Event event = new Event();
         user.addEvent(event);
@@ -104,14 +104,14 @@ public class EventController {
     
     
     
-    @RequestMapping(value = "/events/{eventId}/edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable("eventId") int eventId, ModelMap model) {
         Event event = this.clinicService.findEventById(eventId);
         model.put("event", event);
         return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
     }
 
-    @RequestMapping(value = "/events/{eventId}/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.POST)
     public String processUpdateForm(@Valid Event event, BindingResult result, User user, ModelMap model) {
         if (result.hasErrors()) {
             model.put("event", event);
@@ -121,6 +121,13 @@ public class EventController {
             this.clinicService.saveUserEvent(event);
             return "redirect:/users/{userId}";
         }
+    }
+    
+    @RequestMapping(value = { "/events"})
+    public String showEventList(Map<String, Object> model) {
+        Collection<Event> events = this.clinicService.findAllEvent();
+        model.put("events", events);
+        return "events/eventList";
     }
     
     

@@ -51,17 +51,18 @@ public interface ClinicService {
 
     Collection<Employee> findEmployeeByLastName(String lastName) throws DataAccessException;
 
-	Collection<EmployeeShift> findEmployeeShiftsByEmployEventId(int employEventId);
+	Collection<EmployeeShift> findEmployeeShiftsByEmployEventId(int employEventId) throws DataAccessException;
 
 
-    User login(String username, String password);
+    User login(String username, String password) throws DataAccessException;
     void saveUser(User user) throws DataAccessException;
     
-    Collection<Event> findEventsByUserId(int userId);
+    Collection<Event> findEventsByUserId(int userId) throws DataAccessException;
     void saveUserEvent(Event event) throws DataAccessException;
 
-	User findUserById(int userId);
-	Event findEventById(int eventId);
+	User findUserById(int userId) throws DataAccessException;
+	Event findEventById(int eventId) throws DataAccessException;
+	Collection<Event> findAllEvent() throws DataAccessException;
 	
 
 }

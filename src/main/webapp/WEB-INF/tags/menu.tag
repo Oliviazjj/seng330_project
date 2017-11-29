@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 <%@ attribute name="name" required="true" rtexprvalue="true"
-              description="Name of the active menu: home, employees, contacts or error" %>
+              description="Name of the active menu: home, employees, contacts or events" %>
 
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -33,10 +33,10 @@
                     <span>Contacts</span>
                 </petclinic:menuItem>
 
-                <petclinic:menuItem active="${name eq 'error'}" url="/oups.html"
+                <petclinic:menuItem active="${name eq 'events'}" url="/events.html"
                             title="trigger a RuntimeException to see how it is handled">
                     <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
-                    <span>Error</span>
+                    <span>Events</span>
                 </petclinic:menuItem>
 
             </ul>

@@ -72,4 +72,12 @@ public class JpaEventRepositoryImpl implements EventRepository {
         return (Event) query.getSingleResult();
     }
 
+
+    @Override
+    @SuppressWarnings("unchecked")
+	public List<Event> findAll() {
+    		Query query = this.em.createQuery("SELECT * FROM Event v");
+        return query.getResultList();
+	}
+
 }

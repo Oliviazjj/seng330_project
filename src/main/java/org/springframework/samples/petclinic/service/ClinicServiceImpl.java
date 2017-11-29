@@ -166,4 +166,9 @@ public class ClinicServiceImpl implements ClinicService {
 		return eventRepository.findById(eventId);
 	}
 
+	@Override
+	public Collection<Event> findAllEvent() throws DataAccessException {
+		return eventRepository.findAll();
+	}
+
 }

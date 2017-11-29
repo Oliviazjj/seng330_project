@@ -13,7 +13,7 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Specialties</th>
+            <th>Type</th>
         </tr>
         </thead>
         <tbody>

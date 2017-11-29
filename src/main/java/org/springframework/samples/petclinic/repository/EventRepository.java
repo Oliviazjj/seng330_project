@@ -43,5 +43,6 @@ public interface EventRepository {
 
     List<Event> findByUserId(Integer userId);
     Event findById(Integer eventId);
+    List<Event> findAll();
 
 }
