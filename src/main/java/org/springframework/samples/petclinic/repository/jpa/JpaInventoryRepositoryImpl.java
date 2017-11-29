@@ -44,7 +44,7 @@ public class JpaInventoryRepositoryImpl implements InventoryRepository {
     @Override
     @SuppressWarnings("unchecked")
     public Collection<Inventory> findAll() {
-        return this.em.createQuery("SELECT distinct inventory FROM Inventory").getResultList();
+        return this.em.createQuery("SELECT v FROM Inventory v").getResultList();
     }
     
     @Override

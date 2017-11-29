@@ -54,19 +54,6 @@ public class EventController {
         this.clinicService = clinicService;
     }
 
-//    @ModelAttribute("event")
-//    public Event loadUserWithEvent(@PathVariable("userId") int userId) {
-//        User user = this.clinicService.findUserById(userId);
-//        Event event = new Event();
-//        user.addEvent(event);
-//        return event;
-//    }
-//    
-//    @ModelAttribute("user")
-//    public User findUser(@PathVariable("userId") int userId) {
-//        return this.clinicService.findUserById(userId);
-//    }
-
     @InitBinder("user")
     public void initUserBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
@@ -81,29 +68,6 @@ public class EventController {
         model.put("event", event);
         return "auth/userInfoPage";
     }
-
-//    @RequestMapping(value = "/events/new", method = RequestMethod.POST)
-//    public String processCreationForm(String name, String amountOfPeople, String eventDate,  String appetizer, 
-//    			String entree, String dessert, String description, HttpServletRequest request, HttpSession session) {
-//    		name = request.getParameter("username");
-//    		amountOfPeople = request.getParameter("amountOfPeople");
-//    		eventDate = request.getParameter("eventDate");
-//    		appetizer = request.getParameter("appetizer");
-//    		entree = request.getParameter("entree");
-//    		dessert = request.getParameter("dessert");
-//    		description = request.getParameter("description");
-//    		
-//        Event event = new Event(name, amountOfPeople, eventDate, appetizer, entree, dessert, description);
-//        this.clinicService.saveUserEvent(event);
-//        if (event == null) {
-//            return "users/login";
-//        } else {
-//            session.setAttribute("currentUser", user);
-//            return "auth/userInfoPage";
-//        }
-//    }
-    
-    
     
     @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
     public String initUpdateForm(@PathVariable("userId") int userId, @PathVariable("eventId") int eventId, ModelMap model) {

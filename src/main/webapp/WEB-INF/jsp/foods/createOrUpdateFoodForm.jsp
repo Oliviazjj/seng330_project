@@ -14,6 +14,7 @@
             });
         </script>
     </jsp:attribute>
+    <jsp:body>
     <h2>
         <c:if test="${food['new']}">New </c:if> Food
     </h2>
@@ -37,4 +38,5 @@
             </div>
         </div>
     </form:form>
+    </jsp:body>
 </petclinic:layout>

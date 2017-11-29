@@ -42,7 +42,7 @@ public class JpaFoodRepositoryImpl implements FoodRepository {
     @Override
     @SuppressWarnings("unchecked")
     public Collection<Food> findAll() {
-        return this.em.createQuery("SELECT distinct food FROM Food").getResultList();
+        return this.em.createQuery("SELECT v FROM Food v").getResultList();
     }
     
     @Override

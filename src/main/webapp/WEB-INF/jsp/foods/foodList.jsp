@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${foods.foodList}" var="food">
+        <c:forEach items="${foods}" var="food">
             <tr>
                 <td>
                     <c:out value="${food.name} "/>
