@@ -7,12 +7,22 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="foods">
+	<jsp:attribute name="customScript">
+        <script>
+            $(function () {
+                $("#expireDate").datepicker({dateFormat: 'yy/mm/dd'});
+            });
+        </script>
+    </jsp:attribute>
     <h2>
         <c:if test="${food['new']}">New </c:if> Food
     </h2>
     <form:form modelAttribute="food" class="form-horizontal" id="add-food-form">
         <div class="form-group has-feedback">
             <petclinic:inputField label="Name" name="name"/>
+            <petclinic:inputField label="Type" name="type"/>
+            <petclinic:inputField label="Amount" name="amount"/>
+            <petclinic:inputField label="Date" name="expireDate"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

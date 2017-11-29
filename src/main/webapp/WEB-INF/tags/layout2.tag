@@ -30,6 +30,7 @@ h1,h2,h3,h4,h5,h6 {
     <div class="w3-right w3-hide-small">
       <a href="http://localhost:9966/petclinic/login" class="w3-bar-item w3-button">Login</a>
       <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">Create Event</a>
+      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">My Event</a>
       <a href="http://localhost:9966/petclinic/admin" class="w3-bar-item w3-button">Admin</a>
     </div>
   </div>

@@ -29,9 +29,7 @@
                 <td>
                     <c:out value="${inventory.amount} "/>
                 </td>
-               <%--  <td>
-                    <fmt:formatDate value="${food.expireDate}" pattern="yyyy-MM-dd"/>
-                </td> --%>
+                <td><fmt:formatDate value="${inventory.purchaseDate}" pattern="yyyy/MM/dd"/></td> 
             </tr>
         </c:forEach>
         </tbody>
@@ -41,16 +39,4 @@
     </spring:url>
     <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Inventory</a>
     
-    
-
-   <%--  <table class="table-buttons">
-        <tr>
-            <td>
-                <a href="<spring:url value="/contacts.xml" htmlEscape="true" />">View as XML</a>
-            </td>
-            <td>
-                <a href="<spring:url value="/contacts.json" htmlEscape="true" />">View as JSON</a>
-            </td>
-        </tr>
-    </table> --%>
 </petclinic:layout>

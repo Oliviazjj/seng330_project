@@ -4,7 +4,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="register">
+<petclinic:layout2 pageName="register">
 
 <div class="container">
 
@@ -25,4 +25,4 @@
 
 </div>
 
-</petclinic:layout>
+</petclinic:layout2>

@@ -29,9 +29,7 @@
                 <td>
                     <c:out value="${food.amount} "/>
                 </td>
-               <%--  <td>
-                    <fmt:formatDate value="${food.expireDate}" pattern="yyyy-MM-dd"/>
-                </td> --%>
+              	<td><fmt:formatDate value="${food.expireDate}" pattern="yyyy/MM/dd"/></td> 
             </tr>
         </c:forEach>
         </tbody>

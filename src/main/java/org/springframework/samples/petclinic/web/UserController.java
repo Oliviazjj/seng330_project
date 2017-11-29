@@ -85,7 +85,9 @@ public class UserController {
     public String AdminProcess(String username, String password, HttpServletRequest request, HttpSession session) {
     		username = request.getParameter("username");
         password = request.getParameter("password");
-        if(username=="admina123"&&password=="admin123") return "welcome";
+        if(username=="admin123"&&password=="admin123") { 		
+        		return "welcome";
+        }
         else return "auth/adminPage";
     }
     

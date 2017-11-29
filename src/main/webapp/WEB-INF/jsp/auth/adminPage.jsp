@@ -53,10 +53,10 @@ h1,h2,h3,h4,h5,h6 {
  <tr>
     <td><input name="submit" type="submit" value="submit" /></td>
 </tr>
-      </table>
       </br>
       </br>
 </form>
+</div>
 </body>
 </html>
 

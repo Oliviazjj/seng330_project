@@ -7,6 +7,13 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="inventorys">
+	<jsp:attribute name="customScript">
+        <script>
+            $(function () {
+                $("#purchaseDate").datepicker({dateFormat: 'yy/mm/dd'});
+            });
+        </script>
+    </jsp:attribute>
     <h2>
         <c:if test="${food['inventory']}">New </c:if> Inventory
     </h2>
@@ -15,6 +22,7 @@
             <petclinic:inputField label="Name" name="name"/>
             <petclinic:inputField label="Type" name="type"/>
             <petclinic:inputField label="Amount" name="amount"/>
+            <petclinic:inputField label="Date" name="purchaseDate"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
