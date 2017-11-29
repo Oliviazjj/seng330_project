@@ -26,6 +26,7 @@ import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,6 +76,24 @@ public class InventoryController {
         if (result.hasErrors()) {
             return "inventorys/createOrUpdateInventoryForm";
         } else {
+            this.clinicService.saveInventory(inventory);
+            return "redirect:/inventorys";
+        }
+    }
+    
+    @RequestMapping(value = "/inventorys/{inventoryId}/edit", method = RequestMethod.GET)
+    public String initUpdateEmployeeForm(@PathVariable("inventoryId") int inventoryId, Model model) {
+        Inventory inventory = this.clinicService.findInventoryById(inventoryId);
+        model.addAttribute(inventory);
+        return VIEWS_INVENTORY_CREATE_OR_UPDATE_FORM;
+    }
+
+    @RequestMapping(value = "/inventorys/{inventoryId}/edit", method = RequestMethod.POST)
+    public String processUpdateEmployeeForm(@Valid Inventory inventory, BindingResult result, @PathVariable("inventoryId") int inventoryId) {
+        if (result.hasErrors()) {
+            return VIEWS_INVENTORY_CREATE_OR_UPDATE_FORM;
+        } else {
+            inventory.setId(inventoryId);
             this.clinicService.saveInventory(inventory);
             return "redirect:/inventorys";
         }

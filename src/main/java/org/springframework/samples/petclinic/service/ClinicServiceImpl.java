@@ -171,4 +171,14 @@ public class ClinicServiceImpl implements ClinicService {
 		return eventRepository.findAll();
 	}
 
+	@Override
+	public Inventory findInventoryById(int inventoryId) {
+		return inventoryRepository.findById(inventoryId);
+	}
+
+	@Override
+	public Food findFoodById(int foodId) {
+		return foodRepository.findById(foodId);
+	}
+
 }

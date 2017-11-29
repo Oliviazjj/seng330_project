@@ -15,6 +15,8 @@
             <th>Type</th>
             <th>Amount</th>
             <th>Purchase_date</th>
+            <th>update</th>
+            
         </tr>
         </thead>
         <tbody>
@@ -30,6 +32,12 @@
                     <c:out value="${inventory.amount} "/>
                 </td>
                 <td><fmt:formatDate value="${inventory.purchaseDate}" pattern="yyyy/MM/dd"/></td> 
+                <td>
+                		<spring:url value="inventorys/{inventoryId}/edit.html" var="editUrl">
+        				<spring:param name="inventoryId" value="${inventory.id}"/>
+    					</spring:url>
+   					<a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit Inventory</a>
+				</td> 
             </tr>
         </c:forEach>
         </tbody>

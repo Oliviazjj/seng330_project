@@ -22,10 +22,12 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Food;
+import org.springframework.samples.petclinic.model.Inventory;
 import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -75,6 +77,24 @@ public class FoodController {
         if (result.hasErrors()) {
             return "foods/createOrUpdateFoodForm";
         } else {
+            this.clinicService.saveFood(food);
+            return "redirect:/foods";
+        }
+    }
+    
+    @RequestMapping(value = "/foods/{foodId}/edit", method = RequestMethod.GET)
+    public String initUpdateFoodForm(@PathVariable("foodId") int foodId, Model model) {
+        Food food = this.clinicService.findFoodById(foodId);
+        model.addAttribute(food);
+        return VIEWS_FOOD_CREATE_OR_UPDATE_FORM;
+    }
+
+    @RequestMapping(value = "/foods/{foodId}/edit", method = RequestMethod.POST)
+    public String processUpdateFoodForm(@Valid Food food, BindingResult result, @PathVariable("foodId") int foodId) {
+        if (result.hasErrors()) {
+            return VIEWS_FOOD_CREATE_OR_UPDATE_FORM;
+        } else {
+            food.setId(foodId);
             this.clinicService.saveFood(food);
             return "redirect:/foods";
         }

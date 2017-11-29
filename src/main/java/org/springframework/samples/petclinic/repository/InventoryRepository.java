@@ -26,5 +26,6 @@ public interface InventoryRepository {
 
 	void save(Inventory inventory)  throws DataAccessException;
 
+	Inventory findById(Integer inventoryId) throws DataAccessException;
 
 }

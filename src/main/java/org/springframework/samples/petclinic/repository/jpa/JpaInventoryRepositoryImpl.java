@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.repository.jpa;
 
+import org.springframework.samples.petclinic.model.Event;
 import org.springframework.samples.petclinic.model.Food;
 import org.springframework.samples.petclinic.model.Inventory;
 import org.springframework.samples.petclinic.repository.FoodRepository;
@@ -23,6 +24,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import java.util.Collection;
 
 /**
@@ -55,6 +58,14 @@ public class JpaInventoryRepositoryImpl implements InventoryRepository {
             this.em.merge(inventory);
         }
 
+    }
+    
+    @Override
+    @SuppressWarnings("unchecked")
+    public Inventory findById(Integer inventoryId) {
+        Query query = this.em.createQuery("SELECT v FROM Inventory v where v.id= :id");
+        query.setParameter("id", inventoryId);
+        return (Inventory) query.getSingleResult();
     }
 
 }

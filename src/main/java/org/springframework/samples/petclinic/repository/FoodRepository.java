@@ -41,5 +41,7 @@ public interface FoodRepository {
 
 	void save(Food food)  throws DataAccessException;
 
+	Food findById(Integer foodId) throws DataAccessException;
+
 
 }

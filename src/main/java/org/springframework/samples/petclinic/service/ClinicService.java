@@ -63,6 +63,9 @@ public interface ClinicService {
 	User findUserById(int userId) throws DataAccessException;
 	Event findEventById(int eventId) throws DataAccessException;
 	Collection<Event> findAllEvent() throws DataAccessException;
+
+	Inventory findInventoryById(int inventoryId);
+	Food findFoodById(int foodId);
 	
 
 }

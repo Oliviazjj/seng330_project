@@ -15,12 +15,15 @@
  */
 package org.springframework.samples.petclinic.repository.jpa;
 
+import org.springframework.samples.petclinic.model.Event;
 import org.springframework.samples.petclinic.model.Food;
 import org.springframework.samples.petclinic.repository.FoodRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import java.util.Collection;
 
 /**
@@ -53,6 +56,14 @@ public class JpaFoodRepositoryImpl implements FoodRepository {
             this.em.merge(food);
         }
 
+    }
+    
+    @Override
+    @SuppressWarnings("unchecked")
+    public Food findById(Integer foodId) {
+        Query query = this.em.createQuery("SELECT v FROM Food v where v.id= :id");
+        query.setParameter("id", foodId);
+        return (Food) query.getSingleResult();
     }
 
 }
