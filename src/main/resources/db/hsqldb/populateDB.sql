@@ -1,5 +1,5 @@
-INSERT INTO users VALUES (1, 'admin', 'admin');
-INSERT INTO users VALUES (2, 'op', 'po');
+INSERT INTO users VALUES (1, 'admin', 'admin','user1@gmail.com');
+INSERT INTO users VALUES (2, 'op', 'po','user2@gmail.com');
 
 INSERT INTO events VALUES(2,'birthdayParty', 100, '2017-09-07', 'greenSalad','steak','vanillaIceCream','GF',1);
 
@@ -14,12 +14,12 @@ INSERT INTO inventory VALUES (3, 'red wine', '2017-09-07', 'wine', 20);
 
 
 
-INSERT INTO contacts VALUES (1, 'James', 'Carter');
-INSERT INTO contacts VALUES (2, 'Helen', 'Leary');
-INSERT INTO contacts VALUES (3, 'Linda', 'Douglas');
-INSERT INTO contacts VALUES (4, 'Rafael', 'Ortega');
-INSERT INTO contacts VALUES (5, 'Henry', 'Stevens');
-INSERT INTO contacts VALUES (6, 'Sharon', 'Jenkins');
+INSERT INTO contacts VALUES (1, 'James', 'Carter', 'james@gmail.com');
+INSERT INTO contacts VALUES (2, 'Helen', 'Leary','leary@gmail.com');
+INSERT INTO contacts VALUES (3, 'Linda', 'Douglas','douglas@gmail.com');
+INSERT INTO contacts VALUES (4, 'Rafael', 'Ortega','ortega@gmail.com');
+INSERT INTO contacts VALUES (5, 'Henry', 'Stevens','henry@gmail.com');
+INSERT INTO contacts VALUES (6, 'Sharon', 'Jenkins','jenkins@gmail.com');
 
 INSERT INTO specialties VALUES (1, 'food_vendor');
 INSERT INTO specialties VALUES (2, 'inventory_vendor');

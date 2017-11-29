@@ -35,7 +35,7 @@
 
                 <petclinic:menuItem active="${name eq 'events'}" url="/events"
                             title="trigger a RuntimeException to see how it is handled">
-                    <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Events</span>
                 </petclinic:menuItem>
 
