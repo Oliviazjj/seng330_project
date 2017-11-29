@@ -22,7 +22,7 @@
             <thead>
             <tr>
                 <th>Name</th>
-                <th>Birth Date</th>
+                <th>Date</th>
                 <th>Type</th>
                 <th>Employee</th>
             </tr>
