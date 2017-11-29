@@ -33,7 +33,7 @@
                     <span>Contacts</span>
                 </petclinic:menuItem>
 
-                <petclinic:menuItem active="${name eq 'events'}" url="/events.html"
+                <petclinic:menuItem active="${name eq 'events'}" url="/events"
                             title="trigger a RuntimeException to see how it is handled">
                     <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                     <span>Events</span>

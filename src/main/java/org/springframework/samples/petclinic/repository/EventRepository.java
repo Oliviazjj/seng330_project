@@ -41,8 +41,8 @@ public interface EventRepository {
      */
     void save(Event event) throws DataAccessException;
 
-    List<Event> findByUserId(Integer userId);
-    Event findById(Integer eventId);
-    List<Event> findAll();
+    List<Event> findByUserId(Integer userId) throws DataAccessException;
+    Event findById(Integer eventId) throws DataAccessException;
+    List<Event> findAll() throws DataAccessException;
 
 }

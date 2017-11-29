@@ -123,7 +123,7 @@ public class EventController {
         }
     }
     
-    @RequestMapping(value = { "/events"})
+    @RequestMapping(value = { "/events"}, method = RequestMethod.GET)
     public String showEventList(Map<String, Object> model) {
         Collection<Event> events = this.clinicService.findAllEvent();
         model.put("events", events);
