@@ -41,7 +41,7 @@ h1,h2,h3,h4,h5,h6 {
 		Date date = new Date();-->
 
 <p> Hello and Welcome! Please enter your username and password to login to your account. </p>
-<form action="/admin" method="post">
+<form action="http://localhost:9966/petclinic/admin" method="post">
 <p><font color="red">${errorMessage}</font></p>
 <tr>
     Username: <td><input type='text' name='username' value=''></td>
