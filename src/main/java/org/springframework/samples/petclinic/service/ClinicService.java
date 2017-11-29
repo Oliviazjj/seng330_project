@@ -56,5 +56,12 @@ public interface ClinicService {
 
     User login(String username, String password);
     void saveUser(User user) throws DataAccessException;
+    
+    Collection<Event> findEventsByUserId(int userId);
+    void saveUserEvent(Event event) throws DataAccessException;
+
+	User findUserById(int userId);
+	Event findEventById(int eventId);
+	
 
 }

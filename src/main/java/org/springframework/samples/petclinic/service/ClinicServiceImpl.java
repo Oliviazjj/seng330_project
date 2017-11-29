@@ -26,12 +26,13 @@ public class ClinicServiceImpl implements ClinicService {
     private FoodRepository foodRepository;
     private InventoryRepository inventoryRepository;
     private UserRepository userRepository;
+    private EventRepository eventRepository;
 
 
     @Autowired
     public ClinicServiceImpl(EmployEventRepository employEventRepository, ContactRepository contactRepository, EmployeeRepository employeeRepository,
                              EmployeeShiftRepository employeeShiftRepository, FoodRepository foodRepository, InventoryRepository inventoryRepository,
-                             UserRepository userRepository) {
+                             UserRepository userRepository, EventRepository eventRepository) {
         this.employEventRepository = employEventRepository;
         this.contactRepository = contactRepository;
         this.employeeRepository = employeeRepository;
@@ -39,6 +40,7 @@ public class ClinicServiceImpl implements ClinicService {
         this.foodRepository = foodRepository;
         this.inventoryRepository = inventoryRepository;
         this.userRepository = userRepository;
+        this.eventRepository = eventRepository;
     }
 
     @Override
@@ -127,6 +129,16 @@ public class ClinicServiceImpl implements ClinicService {
 		return employeeShiftRepository.findByEmployEventId(employEventId);
 	}
 
+	//Event
+	 @Override
+	 @Transactional
+	 public void saveUserEvent(Event event) throws DataAccessException {
+		 eventRepository.save(event);
+	 }
+	 @Override
+	 public Collection<Event> findEventsByUserId(int userId) {
+		return eventRepository.findByUserId(userId);
+	}
 
 
 //	User Part
@@ -141,5 +153,17 @@ public class ClinicServiceImpl implements ClinicService {
     public void saveUser(User user) throws DataAccessException {
         userRepository.save(user);
     }
+
+	@Override
+	public User findUserById(int userId) {
+		return userRepository.findById(userId);
+	}
+
+	
+
+	@Override
+	public Event findEventById(int eventId) {
+		return eventRepository.findById(eventId);
+	}
 
 }

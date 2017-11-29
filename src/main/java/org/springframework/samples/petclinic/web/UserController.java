@@ -75,10 +75,6 @@ public class UserController {
         return "redirect:/auth";
     }
     
-    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
-    public String UserInfoPage(Map<String, Object> model) {
-        return "auth/userInfoPage";
-    }
     
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String Admin(Map<String, Object> model) {
@@ -91,6 +87,11 @@ public class UserController {
         password = request.getParameter("password");
         if(username=="admina123"&&password=="admin123") return "welcome";
         else return "auth/adminPage";
+    }
+    
+    @RequestMapping(value = "/userInfo", method = RequestMethod.GET)
+    public String UserInfoPage(Map<String, Object> model) {
+        return "auth/userInfoPage";
     }
 
    
