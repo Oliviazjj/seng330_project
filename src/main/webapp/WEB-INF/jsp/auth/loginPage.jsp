@@ -57,7 +57,7 @@ h1,h2,h3,h4,h5,h6 {
       </table>
       </br>
       </br>
-      <a href = "/register">New User?</a>
+      <a href = "/register">You New User?</a>
 </form>
 </body>
 </html>
