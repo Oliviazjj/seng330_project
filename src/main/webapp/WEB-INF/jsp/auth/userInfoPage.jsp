@@ -153,8 +153,8 @@ h1,h2,h3,h4,h5,h6 {
     <p class="w3-text-blue-grey w3-large"><b>MealsOnWheels, 1234 Fort Street, Victoria, BC</b></p>
     <p>You can also contact us by phone 123-456-7899 or email blah@hotmail.com</p>
 
-
-    <form:form action="${pageContext.request.contextPath}/3/events/new" modelAttribute="event" class="form-horizontal" id="add-employee-form">
+	<form:form action="${pageContext.request.contextPath}/3/events/new" modelAttribute="event" class="form-horizontal" id="add-employee-form">
+    <%-- <form:form action="${pageContext.request.contextPath}/${user_Id}/events/new" modelAttribute="event" modelAttribute="user_Id" class="form-horizontal" id="add-employee-form"> --%>
       <p><form:input class="w3-input w3-padding-16" type="text" placeholder="Name" required="required" name="Name" path="name" /></p>
       <p><form:input class="w3-input w3-padding-16" type="number" placeholder="How many people" required="required" name="People" path="amountOfPeople"/></p>
 

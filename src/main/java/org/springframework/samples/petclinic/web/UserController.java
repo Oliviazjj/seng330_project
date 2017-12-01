@@ -70,6 +70,7 @@ public class UserController {
             session.setAttribute("currentUser", user);
             Event event = new Event();
             model.put("event", event);
+//            model.put("user_Id", user.getId());
             return "auth/userInfoPage";
         }
     }
@@ -110,6 +111,8 @@ public class UserController {
 
         Collection<Event> eventList = this.clinicService.findEventsByUserId(user.getId());
         model.put("eventList", eventList);
+        model.put("userId", user.getId());
+//        return "redirect:/"+user.getId()+"/events";
         return "auth/userInfoPage";
     }
 

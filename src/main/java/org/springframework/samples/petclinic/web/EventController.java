@@ -20,6 +20,7 @@ import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.Employee;
 import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.model.Event;
+import org.springframework.samples.petclinic.model.Food;
 import org.springframework.samples.petclinic.model.Inventory;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.service.ClinicService;
@@ -60,6 +61,14 @@ public class EventController {
     }
 
 
+//    @RequestMapping(value = "/{userId}/events", method = RequestMethod.GET)
+//    public String displayUserEvents(@PathVariable("userId") int userId, BindingResult result, ModelMap model) {
+//    		Collection<Event> events = this.clinicService.findEventsByUserId(userId);
+//        model.put("events", events);
+//        return "auth/events";
+//    }
+    
+    
     @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
     public String initCreationForm(@PathVariable("userId") int userId, ModelMap model, HttpSession session) {
         User user = (User)session.getAttribute("currentUser");
@@ -84,10 +93,12 @@ public class EventController {
         event.setUser(user);
         if (result.hasErrors()) {
             model.put("event", event);
-            return "userInfo";
+              return "auth/userInfoPage";
+
         } else {
             this.clinicService.saveUserEvent(event);
-            return "redirect:/userInfo";
+//            return "redirect:/" + user.getId()+"/events";
+            return "auth/userInfoPage";
         }
     }
 
