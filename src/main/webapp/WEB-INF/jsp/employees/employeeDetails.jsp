@@ -55,11 +55,11 @@
                 <td valign="top">
                     <dl class="dl-horizontal">
                         <dt>Name</dt>
-                        <dd><c:out value="${employEvent.name}"/></dd>
-                        <dt>Birth Date</dt>
-                        <dd><fmt:formatDate value="${employEvent.birthDate}" pattern="yyyy-MM-dd"/></dd>
+                        <dd><c:out value="${employEvent.event.name}"/></dd>
+                        <dt>Event Date</dt>
+                        <dd><fmt:formatDate value="${employEvent.event.eventDate}" pattern="yyyy-MM-dd"/></dd>
                         <dt>Type</dt>
-                        <dd><c:out value="${employEvent.type.name}"/></dd>
+                        <dd><c:out value="${employEvent.event.name}"/></dd>
                     </dl>
                 </td>
                 <td valign="top">

@@ -23,14 +23,14 @@
             <tr>
                 <th>Name</th>
                 <th>Date</th>
-                <th>Type</th>
+                <th>Event</th>
                 <th>Employee</th>
             </tr>
             </thead>
             <tr>
                 <td><c:out value="${employeeShift.employEvent.name}"/></td>
-                <td><fmt:formatDate value="${employeeShift.employEvent.birthDate}" pattern="yyyy/MM/dd"/></td>
-                <td><c:out value="${employeeShift.employEvent.type.name}"/></td>
+                <td><fmt:formatDate value="${employeeShift.employEvent.event.getEventData}" pattern="yyyy/MM/dd"/></td>
+                <td><c:out value="${employeeShift.employEvent.event.name}"/></td>
                 <td><c:out value="${employeeShift.employEvent.employee.firstName} ${employeeShift.employEvent.employee.lastName}"/></td>
             </tr>
         </table>

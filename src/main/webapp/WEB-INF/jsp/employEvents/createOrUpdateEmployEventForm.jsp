@@ -5,18 +5,12 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="employees">
-    <jsp:attribute name="customScript">
-        <script>
-            $(function () {
-                $("#birthDate").datepicker({dateFormat: 'yy/mm/dd'});
-            });
-        </script>
-    </jsp:attribute>
     <jsp:body>
         <h2>
-            <c:if test="${employEvent['new']}">New </c:if> EmployEvent
+            <c:if test="${employEvent['new']}">New </c:if> EmployeeEvent
         </h2>
         <form:form modelAttribute="employEvent"
+        			   modelAttribute="eventOptions"
                    class="form-horizontal">
             <input type="hidden" name="id" value="${employEvent.id}"/>
             <div class="form-group has-feedback">
@@ -27,9 +21,8 @@
                     </div>
                 </div>
                 <petclinic:inputField label="Name" name="name"/>
-                <petclinic:inputField label="Birth Date" name="birthDate"/>
                 <div class="control-group">
-                    <petclinic:selectField name="type" label="Type " names="${types}" size="5"/>
+                    <petclinic:selectField name="eventOptions" label="Event Options" names="${eventOptions}" size="100"/>
                 </div>
             </div>
             <div class="form-group">

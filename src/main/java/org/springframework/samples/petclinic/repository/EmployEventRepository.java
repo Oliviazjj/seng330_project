@@ -21,6 +21,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.BaseEntity;
 import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.EmployEventType;
+import org.springframework.samples.petclinic.model.Event;
 
 /**
  * Repository class for <code>EmployEvent</code> domain objects All method names are compliant with Spring Data naming
@@ -38,7 +39,7 @@ public interface EmployEventRepository {
      *
      * @return a <code>Collection</code> of <code>EmployEventType</code>s
      */
-    List<EmployEventType> findEmployEventTypes() throws DataAccessException;
+    List<Event> findEventOptions() throws DataAccessException;
 
     /**
      * Retrieve a <code>EmployEvent</code> from the data store by id.

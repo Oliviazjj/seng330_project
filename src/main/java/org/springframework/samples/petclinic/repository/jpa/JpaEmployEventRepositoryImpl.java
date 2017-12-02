@@ -22,6 +22,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.EmployEventType;
+import org.springframework.samples.petclinic.model.Event;
 import org.springframework.samples.petclinic.repository.EmployEventRepository;
 import org.springframework.stereotype.Repository;
 
@@ -42,8 +43,8 @@ public class JpaEmployEventRepositoryImpl implements EmployEventRepository {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<EmployEventType> findEmployEventTypes() {
-        return this.em.createQuery("SELECT ptype FROM EmployEventType ptype ORDER BY ptype.name").getResultList();
+    public List<Event> findEventOptions() {
+        return this.em.createQuery("SELECT name FROM Event event ORDER BY event.name").getResultList();
     }
 
     @Override

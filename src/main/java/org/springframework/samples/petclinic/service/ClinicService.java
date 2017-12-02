@@ -28,7 +28,7 @@ import org.springframework.samples.petclinic.model.*;
  */
 public interface ClinicService {
 
-    Collection<EmployEventType> findEmployEventTypes() throws DataAccessException;
+    Collection<Event> findEventOptions() throws DataAccessException;
 
     Employee findEmployeeById(int id) throws DataAccessException;
 

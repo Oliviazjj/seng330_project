@@ -6,7 +6,13 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="employees">
+
+	<!-- <div class="col-sm-offset-2 col-sm-10"> -->
     <h2>Employees</h2>
+    <br />
+    <a class="btn btn-default" href='<spring:url value="/employees/new" htmlEscape="true"/>'>Add Employee</a>
+    <br />
+    <!--  </div> -->
 
     <table id="employeesTable" class="table table-striped">
         <thead>
@@ -15,7 +21,6 @@
             <th style="width: 200px;">Address</th>
             <th>City</th>
             <th style="width: 120px">Telephone</th>
-            <th>Pets</th>
         </tr>
         </thead>
         <tbody>
@@ -35,11 +40,6 @@
                 </td>
                 <td>
                     <c:out value="${employee.telephone}"/>
-                </td>
-                <td>
-                    <c:forEach var="employEvent" items="${employee.employEvents}">
-                        <c:out value="${employEvent.name} "/>
-                    </c:forEach>
                 </td>
             </tr>
         </c:forEach>

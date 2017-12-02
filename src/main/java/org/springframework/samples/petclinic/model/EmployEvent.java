@@ -48,14 +48,14 @@ import java.util.Set;
 @Table(name = "employEvents")
 public class EmployEvent extends NamedEntity {
 
-    @Column(name = "birth_date")
+    @Column(name = "event_date")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    private Date birthDate;
+    private Date eventDate;
 
     @ManyToOne
-    @JoinColumn(name = "type_id")
-    private EmployEventType type;
+    @JoinColumn(name = "event_id")
+    private Event event;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -64,21 +64,12 @@ public class EmployEvent extends NamedEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employEvent", fetch = FetchType.EAGER)
     private Set<EmployeeShift> employeeShifts;
 
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
+    public Event getEvent() {
+        return this.event;
     }
 
-    public Date getBirthDate() {
-        return this.birthDate;
-    }
-
-    public EmployEventType getType() {
-        return this.type;
-    }
-
-    public void setType(EmployEventType type) {
-        this.type = type;
+    public void setEvent(Event event) {
+        this.event = event;
     }
 
     public Employee getEmployee() {

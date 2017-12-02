@@ -31,7 +31,7 @@
                 </td>
               	<td><fmt:formatDate value="${food.expireDate}" pattern="yyyy/MM/dd"/></td> 
               	<td>
-                		<spring:url value="{foodId}/edit.html" var="editUrl">
+                		<spring:url value="foods/{foodId}/edit.html" var="editUrl">
         				<spring:param name="foodId" value="${food.id}"/>
     					</spring:url>
    					<a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit Food</a>

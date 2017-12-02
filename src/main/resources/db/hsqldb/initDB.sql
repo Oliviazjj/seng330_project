@@ -68,12 +68,11 @@ CREATE INDEX employees_last_name ON employees (last_name);
 CREATE TABLE employEvents (
   id         INTEGER IDENTITY PRIMARY KEY,
   name       VARCHAR(30),
-  birth_date DATE,
-  type_id    INTEGER NOT NULL,
+  event_date DATE,
+  event_id    INTEGER NOT NULL,
   employee_id   INTEGER NOT NULL
 );
 ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_employees FOREIGN KEY (employee_id) REFERENCES employees (id);
-ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_types FOREIGN KEY (type_id) REFERENCES types (id);
 CREATE INDEX employEvents_name ON employEvents (name);
 
 CREATE TABLE employeeShifts (
@@ -107,3 +106,4 @@ CREATE TABLE events (
 );
 ALTER TABLE events ADD CONSTRAINT fk_events_users FOREIGN KEY (user_id) REFERENCES users (id);
 CREATE INDEX events_user_id ON events (user_id);
+ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_events FOREIGN KEY (event_id) REFERENCES events (id);

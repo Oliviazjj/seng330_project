@@ -17,6 +17,7 @@ package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Employee;
+import org.springframework.samples.petclinic.model.Event;
 import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.EmployEventType;
 import org.springframework.samples.petclinic.service.ClinicService;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 import java.util.Collection;
+import java.util.Collections;
 
 /**
  * @author Juergen Hoeller
@@ -48,9 +50,9 @@ public class EmployEventController {
         this.clinicService = clinicService;
     }
 
-    @ModelAttribute("types")
-    public Collection<EmployEventType> populateEmployEventTypes() {
-        return this.clinicService.findEmployEventTypes();
+    @ModelAttribute("events")
+    public Collection<Event> populateEmployEventTypes() {
+        return this.clinicService.findEventOptions();
     }
 
     @ModelAttribute("employee")
@@ -73,6 +75,8 @@ public class EmployEventController {
         EmployEvent employEvent = new EmployEvent();
         employee.addEmployEvent(employEvent);
         model.put("employEvent", employEvent);
+        Collection<Event> eventOptions = clinicService.findEventOptions();  
+        model.put("eventOptions", eventOptions);
         return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -83,6 +87,8 @@ public class EmployEventController {
         }
         if (result.hasErrors()) {
             model.put("employEvent", employEvent);
+            Collection<Event> eventOptions = clinicService.findEventOptions();  
+            model.put("eventOptions", eventOptions);
             return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
         } else {
             employee.addEmployEvent(employEvent);
@@ -95,6 +101,8 @@ public class EmployEventController {
     public String initUpdateForm(@PathVariable("employEventId") int employEventId, ModelMap model) {
         EmployEvent employEvent = this.clinicService.findEmployEventById(employEventId);
         model.put("employEvent", employEvent);
+        Collection<Event> eventOptions = clinicService.findEventOptions();  
+        model.put("eventOptions", eventOptions);
         return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -102,6 +110,8 @@ public class EmployEventController {
     public String processUpdateForm(@Valid EmployEvent employEvent, BindingResult result, Employee employee, ModelMap model) {
         if (result.hasErrors()) {
             model.put("employEvent", employEvent);
+            Collection<Event> eventOptions = clinicService.findEventOptions();  
+            model.put("eventOptions", eventOptions);
             return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
         } else {
             employee.addEmployEvent(employEvent);

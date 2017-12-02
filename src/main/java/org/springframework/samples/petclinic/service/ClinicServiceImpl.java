@@ -45,8 +45,8 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     @Transactional(readOnly = true)
-    public Collection<EmployEventType> findEmployEventTypes() throws DataAccessException {
-        return employEventRepository.findEmployEventTypes();
+    public Collection<Event> findEventOptions() throws DataAccessException {
+        return employEventRepository.findEventOptions();
     }
 
     @Override

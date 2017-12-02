@@ -43,14 +43,11 @@ public class EmployEventValidator implements Validator {
         }
 
         // type validation
-        if (employEvent.isNew() && employEvent.getType() == null) {
-            errors.rejectValue("type", REQUIRED, REQUIRED);
+        if (employEvent.isNew() && employEvent.getEvent() == null) {
+            errors.rejectValue("eventOptions", REQUIRED, REQUIRED);
         }
 
-        // birth date validation
-        if (employEvent.getBirthDate() == null) {
-            errors.rejectValue("birthDate", REQUIRED, REQUIRED);
-        }
+       
     }
 
     /**
