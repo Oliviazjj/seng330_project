@@ -16,11 +16,15 @@
 package org.springframework.samples.petclinic.repository.jpa;
 
 import org.springframework.samples.petclinic.model.Contact;
+import org.springframework.samples.petclinic.model.Employee;
+import org.springframework.samples.petclinic.model.Food;
 import org.springframework.samples.petclinic.repository.ContactRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import java.util.Collection;
 
 /**
@@ -46,6 +50,13 @@ public class JpaContactRepositoryImpl implements ContactRepository {
     }
     
     @Override
+    public Contact findById(int contactId) {
+        Query query = this.em.createQuery("SELECT v FROM Contact v where v.id= :id");
+        query.setParameter("id", contactId);
+        return (Contact) query.getSingleResult();
+    }
+    
+    @Override
     public void save(Contact contact) {
         if (contact.getId() == null) {
             this.em.persist(contact);
@@ -54,5 +65,4 @@ public class JpaContactRepositoryImpl implements ContactRepository {
         }
 
     }
-
 }

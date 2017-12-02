@@ -21,15 +21,13 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>Name</th>
                 <th>Date</th>
                 <th>Event</th>
                 <th>Employee</th>
             </tr>
             </thead>
             <tr>
-                <td><c:out value="${employeeShift.employEvent.name}"/></td>
-                <td><fmt:formatDate value="${employeeShift.employEvent.event.getEventData}" pattern="yyyy/MM/dd"/></td>
+                <td><fmt:formatDate value="${employeeShift.employEvent.event.eventDate}" pattern="yyyy/MM/dd"/></td>
                 <td><c:out value="${employeeShift.employEvent.event.name}"/></td>
                 <td><c:out value="${employeeShift.employEvent.employee.firstName} ${employeeShift.employEvent.employee.lastName}"/></td>
             </tr>
@@ -38,7 +36,7 @@
         <form:form modelAttribute="employeeShift" class="form-horizontal">
             <div class="form-group has-feedback">
                 <petclinic:inputField label="Date" name="date"/>
-                <petclinic:inputField label="Description" name="description"/>
+                <petclinic:inputField label="Description of shift time slot" name="description"/>
             </div>
 
             <div class="form-group">

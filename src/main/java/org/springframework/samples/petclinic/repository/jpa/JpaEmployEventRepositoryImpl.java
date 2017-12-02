@@ -44,7 +44,7 @@ public class JpaEmployEventRepositoryImpl implements EmployEventRepository {
     @Override
     @SuppressWarnings("unchecked")
     public List<Event> findEventOptions() {
-        return this.em.createQuery("SELECT name FROM Event event ORDER BY event.name").getResultList();
+        return this.em.createQuery("SELECT event FROM Event event ORDER BY event.name").getResultList();
     }
 
     @Override

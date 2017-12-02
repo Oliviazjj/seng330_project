@@ -132,7 +132,7 @@ public class ClinicServiceImpl implements ClinicService {
 	//Event
 	 @Override
 	 @Transactional
-	 public void saveUserEvent(Event event) throws DataAccessException {
+	 public void saveEvent(Event event) throws DataAccessException {
 		 eventRepository.save(event);
 	 }
 	 @Override
@@ -179,6 +179,11 @@ public class ClinicServiceImpl implements ClinicService {
 	@Override
 	public Food findFoodById(int foodId) {
 		return foodRepository.findById(foodId);
+	}
+
+	@Override
+	public Contact findContactById(int contactId) {
+		return contactRepository.findById(contactId);
 	}
 
 }

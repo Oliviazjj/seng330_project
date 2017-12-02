@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.web;
 
+import java.util.Collection;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -22,15 +23,13 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Contact;
 import org.springframework.samples.petclinic.model.Contacts;
-import org.springframework.samples.petclinic.model.Employee;
-import org.springframework.samples.petclinic.model.EmployeeShift;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author Juergen Hoeller
@@ -82,15 +81,22 @@ public class ContactController {
     }
 
 
-    @RequestMapping(value = { "/contacts.json", "/contacts.xml"})
-    public
-    @ResponseBody
-    Contacts showResourcesContactList() {
-        // Here we are returning an object of type 'Contacts' rather than a collection of Contact objects
-        // so it is simpler for JSon/Object mapping
-        Contacts contacts = new Contacts();
-        contacts.getContactList().addAll(this.clinicService.findContacts());
-        return contacts;
+    @RequestMapping(value = "/contactss/{contactId}/edit", method = RequestMethod.GET)
+    public String initUpdateContactForm(@PathVariable("contactId") int contactId, Model model) {
+        Contact contact = this.clinicService.findContactById(contactId);
+        model.addAttribute(contact);
+        return VIEWS_CONTACT_CREATE_OR_UPDATE_FORM;
+    }
+
+    @RequestMapping(value = "/contacts/{contactId}/edit", method = RequestMethod.POST)
+    public String processUpdateContactForm(@Valid Contact contact, BindingResult result, @PathVariable("contactId") int contactId) {
+        if (result.hasErrors()) {
+            return VIEWS_CONTACT_CREATE_OR_UPDATE_FORM;
+        } else {
+            contact.setId(contactId);
+            this.clinicService.saveContact(contact);
+            return "redirect:/contacts";
+        }
     }
 
 

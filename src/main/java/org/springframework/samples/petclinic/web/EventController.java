@@ -75,7 +75,6 @@ public class EventController {
         if (user == null) {
             return "redirect:/login";
         }
-//        User user = this.clinicService.findUserById(userId);
 
         Event event = new Event();
 //        user.addEvent(event);
@@ -96,29 +95,49 @@ public class EventController {
               return "auth/userInfoPage";
 
         } else {
-            this.clinicService.saveUserEvent(event);
+            this.clinicService.saveEvent(event);
 //            return "redirect:/" + user.getId()+"/events";
             return "auth/userInfoPage";
         }
     }
 
 
-    @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.GET)
-    public String initUpdateForm(@PathVariable("userId") int userId, @PathVariable("eventId") int eventId, ModelMap model) {
+    @RequestMapping(value = "events/{eventId}/edit", method = RequestMethod.GET)
+    public String initUpdateForm( @PathVariable("eventId") int eventId, ModelMap model) {
         Event event = this.clinicService.findEventById(eventId);
         model.put("event", event);
         return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
     }
 
-    @RequestMapping(value = "/{userId}/events/{eventId}/edit", method = RequestMethod.POST)
-    public String processUpdateForm(@PathVariable("userId") int userId, @Valid Event event, BindingResult result, User user, ModelMap model) {
+    @RequestMapping(value = "events/{eventId}/edit", method = RequestMethod.POST)
+    public String processUpdateForm(@Valid Event event, BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             model.put("event", event);
             return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
         } else {
-            user.addEvent(event);
-            this.clinicService.saveUserEvent(event);
-            return "redirect:/users/{userId}";
+            this.clinicService.saveEvent(event);
+            return "redirect:/events";
+        }
+    }
+    
+    @RequestMapping(value = "/events/new", method = RequestMethod.GET)
+    public String initCreationEventForm(ModelMap model, HttpSession session) {
+        Event event = new Event();
+        model.put("event", event);
+        return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
+    }
+
+
+    @RequestMapping(value = "/events/new", method = RequestMethod.POST)
+    public String submitCreationEventForm(@Valid Event event, BindingResult result, HttpSession session, ModelMap model) {
+    	
+        if (result.hasErrors()) {
+            model.put("event", event);
+              return VIEWS_EVENTS_CREATE_OR_UPDATE_FORM;
+
+        } else {
+            this.clinicService.saveEvent(event);
+            return "redirect:/events";
         }
     }
 

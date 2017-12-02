@@ -7,9 +7,13 @@
 
 <employEventclinic:layout pageName="employees">
 
+
+	<spring:url value="new" var="addUrl">
+    </spring:url>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Employee</a>
+    
     <h2>Employee Information</h2>
-
-
+    
     <table class="table table-striped">
         <tr>
             <th>Name</th>
@@ -37,12 +41,8 @@
     <spring:url value="{employeeId}/employEvents/new.html" var="addUrl">
         <spring:param name="employeeId" value="${employee.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New EmployEvent</a>
-    
-     <spring:url value="new" var="addUrl">
-    </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Employee</a>
-
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Assign New Event to employee</a>
+ 
     <br/>
     <br/>
     <br/>
@@ -54,12 +54,12 @@
             <tr>
                 <td valign="top">
                     <dl class="dl-horizontal">
-                        <dt>Name</dt>
+                        <dt>Event Name</dt>
                         <dd><c:out value="${employEvent.event.name}"/></dd>
                         <dt>Event Date</dt>
                         <dd><fmt:formatDate value="${employEvent.event.eventDate}" pattern="yyyy-MM-dd"/></dd>
-                        <dt>Type</dt>
-                        <dd><c:out value="${employEvent.event.name}"/></dd>
+                         <dt>Event Location</dt>
+                        <dd><c:out value="${employEvent.event.location}"/></dd>
                     </dl>
                 </td>
                 <td valign="top">
@@ -67,7 +67,7 @@
                         <thead>
                         <tr>
                             <th>EmployeeShift Date</th>
-                            <th>Description</th>
+                            <th>Time For Employee Shift</th>
                         </tr>
                         </thead>
                         <c:forEach var="employeeShift" items="${employEvent.employeeShifts}">

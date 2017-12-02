@@ -1,8 +1,8 @@
 INSERT INTO users VALUES (1, 'admin', 'admin','user1@gmail.com');
 INSERT INTO users VALUES (2, 'op', 'po','user2@gmail.com');
 
-INSERT INTO events VALUES(1,'birthdayParty', 100, '2017-09-07', 'greenSalad','steak','vanillaIceCream','GF',1);
-INSERT INTO events VALUES(2,'conference', 100, '2017-09-07', 'gardenSalad','burger','cocoIceCream','GF',2);
+INSERT INTO events VALUES(1,'birthdayParty', 100, '2017-09-07', '300 graden street', 'greenSalad','steak','vanillaIceCream','GF',1);
+INSERT INTO events VALUES(2,'conference', 100, '2017-09-07', 'city conference center', 'gardenSalad','burger','cocoIceCream','GF',2);
 
 INSERT INTO food VALUES (1, 'banana', '2017-09-07', 'vegetable', 20);
 INSERT INTO food VALUES (2, 'tomato', '2017-09-07', 'fruit', 20);
@@ -32,11 +32,6 @@ INSERT INTO contact_specialties VALUES (3, 3);
 INSERT INTO contact_specialties VALUES (4, 2);
 INSERT INTO contact_specialties VALUES (5, 1);
 
-INSERT INTO types VALUES (1, 'company indoor event');
-INSERT INTO types VALUES (2, 'customer outdoor event');
-INSERT INTO types VALUES (3, 'company outdoor event');
-INSERT INTO types VALUES (4, 'customer outdoor event');
-INSERT INTO types VALUES (5, 'other');
 
 INSERT INTO employees VALUES (1, 'George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023');
 INSERT INTO employees VALUES (2, 'Betty', 'Davis', '638 Cardinal Ave.', 'Sun Prairie', '6085551749');

@@ -28,44 +28,48 @@ import org.springframework.samples.petclinic.model.*;
  */
 public interface ClinicService {
 
+	//event actions
     Collection<Event> findEventOptions() throws DataAccessException;
-
-    Employee findEmployeeById(int id) throws DataAccessException;
-
-    EmployEvent findEmployEventById(int id) throws DataAccessException;
-
     void saveEmployEvent(EmployEvent employEvent) throws DataAccessException;
 
+    	//employee actions
+    Employee findEmployeeById(int id) throws DataAccessException;
+    EmployEvent findEmployEventById(int id) throws DataAccessException;
+    void saveEmployee(Employee employee) throws DataAccessException;
+    Collection<Employee> findEmployeeByLastName(String lastName) throws DataAccessException;
+    
+    
+    //employee shift actions
     void saveEmployeeShift(EmployeeShift employeeShift) throws DataAccessException;
+    Collection<EmployeeShift> findEmployeeShiftsByEmployEventId(int employEventId) throws DataAccessException;
 
+    //contact actions
     Collection<Contact> findContacts() throws DataAccessException;
     void saveContact(Contact contact) throws DataAccessException;
+    Contact findContactById(int contactId);
 
+    //food actions
     Collection<Food> findFood() throws DataAccessException;
     void saveFood(Food food) throws DataAccessException;
+    Food findFoodById(int foodId);
 
+    //inventory actions
     Collection<Inventory> findInventory() throws DataAccessException;
     void saveInventory(Inventory inventory) throws DataAccessException;
+    Inventory findInventoryById(int inventoryId);
+    
 
-    void saveEmployee(Employee employee) throws DataAccessException;
-
-    Collection<Employee> findEmployeeByLastName(String lastName) throws DataAccessException;
-
-	Collection<EmployeeShift> findEmployeeShiftsByEmployEventId(int employEventId) throws DataAccessException;
-
-
+    //user actions
     User login(String username, String password) throws DataAccessException;
     void saveUser(User user) throws DataAccessException;
+    User findUserById(int userId) throws DataAccessException;
     
+    //user events
     Collection<Event> findEventsByUserId(int userId) throws DataAccessException;
-    void saveUserEvent(Event event) throws DataAccessException;
-
-	User findUserById(int userId) throws DataAccessException;
-	Event findEventById(int eventId) throws DataAccessException;
+    void saveEvent(Event event) throws DataAccessException;
+    Event findEventById(int eventId) throws DataAccessException;
 	Collection<Event> findAllEvent() throws DataAccessException;
 
-	Inventory findInventoryById(int inventoryId);
-	Food findFoodById(int foodId);
 	
 
 }

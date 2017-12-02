@@ -17,6 +17,7 @@ package org.springframework.samples.petclinic.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -98,7 +99,12 @@ public class Employee extends Person {
 
     public List<EmployEvent> getEmployEvents() {
         List<EmployEvent> sortedEmployEvents = new ArrayList<>(getEmployEventsInternal());
-        PropertyComparator.sort(sortedEmployEvents, new MutableSortDefinition("name", true, true));
+        Collections.sort(sortedEmployEvents, new Comparator<EmployEvent>() {
+            @Override
+            public int compare(EmployEvent e1, EmployEvent e2) {
+                return e1.getDate().compareTo(e2.getDate());
+            }
+        });
         return Collections.unmodifiableList(sortedEmployEvents);
     }
 
@@ -123,13 +129,13 @@ public class Employee extends Person {
      * @param name to test
      * @return true if employEmployEvent name is already in use
      */
-    public EmployEvent getEmployEvent(String name, boolean ignoreNew) {
-        name = name.toLowerCase();
+    public EmployEvent getEmployEvent(String eventName, boolean ignoreNew) {
+    	eventName = eventName.toLowerCase();
         for (EmployEvent employEvent : getEmployEventsInternal()) {
             if (!ignoreNew || !employEvent.isNew()) {
-                String compName = employEvent.getName();
+                String compName = employEvent.getEvent().getName();
                 compName = compName.toLowerCase();
-                if (compName.equals(name)) {
+                if (compName.equals(eventName)) {
                     return employEvent;
                 }
             }

@@ -11,6 +11,7 @@
     <h2>Employees</h2>
     <br />
     <a class="btn btn-default" href='<spring:url value="/employees/new" htmlEscape="true"/>'>Add Employee</a>
+    <h3> Please click employee name to see the employee details</h3>
     <br />
     <!--  </div> -->
 
@@ -41,6 +42,7 @@
                 <td>
                     <c:out value="${employee.telephone}"/>
                 </td>
+                
             </tr>
         </c:forEach>
         </tbody>

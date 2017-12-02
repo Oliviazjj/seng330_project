@@ -67,7 +67,7 @@ public class JpaEventRepositoryImpl implements EventRepository {
     @Override
     @SuppressWarnings("unchecked")
     public Event findById(Integer eventId) {
-        Query query = this.em.createQuery("SELECT v FROM Event v where v.event.id= :id");
+        Query query = this.em.createQuery("SELECT v FROM Event v where v.id= :id");
         query.setParameter("id", eventId);
         return (Event) query.getSingleResult();
     }

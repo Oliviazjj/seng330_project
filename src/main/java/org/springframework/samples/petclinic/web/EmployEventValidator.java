@@ -36,15 +36,10 @@ public class EmployEventValidator implements Validator {
     @Override
     public void validate(Object obj, Errors errors) {
         EmployEvent employEvent = (EmployEvent) obj;
-        String name = employEvent.getName();
-        // name validation
-        if (!StringUtils.hasLength(name)) {
-            errors.rejectValue("name", REQUIRED, REQUIRED);
-        }
 
         // type validation
         if (employEvent.isNew() && employEvent.getEvent() == null) {
-            errors.rejectValue("eventOptions", REQUIRED, REQUIRED);
+            errors.rejectValue("event", REQUIRED, REQUIRED);
         }
 
        

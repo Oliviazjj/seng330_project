@@ -1,28 +1,18 @@
 package org.springframework.samples.petclinic.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.beans.support.MutableSortDefinition;
-import org.springframework.beans.support.PropertyComparator;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 
 @Entity
@@ -38,6 +28,10 @@ public class Event extends NamedEntity {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private Date eventDate;
+	
+	@NotEmpty
+	@Column(name = "location")
+	private String location;
 	
 	@NotEmpty
 	@Column(name = "appetizer")
@@ -72,7 +66,13 @@ public class Event extends NamedEntity {
         return this.eventDate;
     }
 
-    
+    public String getLocation() {
+		return this.location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
     public int getAmountOfPeople() {
 		return amountOfPeople;

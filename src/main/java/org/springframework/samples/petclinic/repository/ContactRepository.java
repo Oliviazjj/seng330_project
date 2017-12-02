@@ -40,5 +40,7 @@ public interface ContactRepository {
 
 	void save(Contact contact)  throws DataAccessException;
 
+	Contact findById(int contactId);
+
 
 }

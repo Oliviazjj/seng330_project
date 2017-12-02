@@ -11,6 +11,29 @@ DROP TABLE users IF EXISTS;
 DROP TABLE events IF EXISTS;
 
 
+CREATE TABLE users (
+  id          INTEGER IDENTITY PRIMARY KEY,
+  username  VARCHAR(50),
+  password  VARCHAR(50),
+  email VARCHAR(30)
+);
+
+CREATE TABLE events (
+  id         INTEGER IDENTITY PRIMARY KEY,
+  name       VARCHAR(30),
+  amountOfPeople INTEGER NOT NULL,
+  event_date DATE,
+  location   VARCHAR(30),
+  appetizer  VARCHAR(50),
+  entree  VARCHAR(50),
+  dessert  VARCHAR(50),
+  description  VARCHAR(50),
+  user_id   INTEGER 
+);
+ALTER TABLE events ADD CONSTRAINT fk_events_users FOREIGN KEY (user_id) REFERENCES users (id);
+CREATE INDEX events_user_id ON events (user_id);
+CREATE INDEX events_name ON events (name);
+
 CREATE TABLE food (
   id         INTEGER IDENTITY PRIMARY KEY,
   name       VARCHAR(30),
@@ -49,11 +72,8 @@ CREATE TABLE contact_specialties (
 ALTER TABLE contact_specialties ADD CONSTRAINT fk_contact_specialties_contacts FOREIGN KEY (contact_id) REFERENCES contacts (id);
 ALTER TABLE contact_specialties ADD CONSTRAINT fk_contact_specialties_specialties FOREIGN KEY (specialty_id) REFERENCES specialties (id);
 
-CREATE TABLE types (
-  id   INTEGER IDENTITY PRIMARY KEY,
-  name VARCHAR(80)
-);
-CREATE INDEX types_name ON types (name);
+
+
 
 CREATE TABLE employees (
   id         INTEGER IDENTITY PRIMARY KEY,
@@ -73,7 +93,8 @@ CREATE TABLE employEvents (
   employee_id   INTEGER NOT NULL
 );
 ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_employees FOREIGN KEY (employee_id) REFERENCES employees (id);
-CREATE INDEX employEvents_name ON employEvents (name);
+ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_events FOREIGN KEY (event_id) REFERENCES events (id);
+
 
 CREATE TABLE employeeShifts (
   id          INTEGER IDENTITY PRIMARY KEY,
@@ -86,24 +107,5 @@ CREATE INDEX employeeShifts_employEvent_id ON employeeShifts (employEvent_id);
 
 
 
-CREATE TABLE users (
-  id          INTEGER IDENTITY PRIMARY KEY,
-  username  VARCHAR(50),
-  password  VARCHAR(50),
-  email VARCHAR(30)
-);
 
-CREATE TABLE events (
-  id         INTEGER IDENTITY PRIMARY KEY,
-  name       VARCHAR(30),
-  amountOfPeople INTEGER NOT NULL,
-  event_date DATE,
-  appetizer  VARCHAR(50),
-  entree  VARCHAR(50),
-  dessert  VARCHAR(50),
-  description  VARCHAR(50),
-  user_id   INTEGER NOT NULL
-);
-ALTER TABLE events ADD CONSTRAINT fk_events_users FOREIGN KEY (user_id) REFERENCES users (id);
-CREATE INDEX events_user_id ON events (user_id);
-ALTER TABLE employEvents ADD CONSTRAINT fk_employEvents_events FOREIGN KEY (event_id) REFERENCES events (id);
+

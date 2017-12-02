@@ -32,6 +32,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -46,7 +47,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "employEvents")
-public class EmployEvent extends NamedEntity {
+public class EmployEvent extends BaseEntity {
 
     @Column(name = "event_date")
     @Temporal(TemporalType.DATE)
@@ -63,6 +64,14 @@ public class EmployEvent extends NamedEntity {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employEvent", fetch = FetchType.EAGER)
     private Set<EmployeeShift> employeeShifts;
+    
+    public Date getDate() {
+        return this.event.getEventDate();
+    }
+
+    public void setDate(Date eventDate) {
+        this.eventDate = eventDate;
+    }
 
     public Event getEvent() {
         return this.event;
@@ -76,7 +85,7 @@ public class EmployEvent extends NamedEntity {
         return this.employee;
     }
 
-    protected void setEmployee(Employee employee) {
+    public void setEmployee(Employee employee) {
         this.employee = employee;
     }
 
@@ -93,7 +102,12 @@ public class EmployEvent extends NamedEntity {
 
     public List<EmployeeShift> getEmployeeShifts() {
         List<EmployeeShift> sortedEmployeeShifts = new ArrayList<>(getEmployeeShiftsInternal());
-        PropertyComparator.sort(sortedEmployeeShifts, new MutableSortDefinition("date", false, false));
+        Collections.sort(sortedEmployeeShifts, new Comparator<EmployeeShift>() {
+            @Override
+            public int compare(EmployeeShift e1, EmployeeShift e2) {
+                return e1.getDate().compareTo(e2.getDate());
+            }
+        });
         return Collections.unmodifiableList(sortedEmployeeShifts);
     }
 

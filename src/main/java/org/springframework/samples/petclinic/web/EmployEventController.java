@@ -50,8 +50,8 @@ public class EmployEventController {
         this.clinicService = clinicService;
     }
 
-    @ModelAttribute("events")
-    public Collection<Event> populateEmployEventTypes() {
+    @ModelAttribute("eventOptions")
+    public Collection<Event> populateEmployEventOptions() {
         return this.clinicService.findEventOptions();
     }
 
@@ -75,20 +75,16 @@ public class EmployEventController {
         EmployEvent employEvent = new EmployEvent();
         employee.addEmployEvent(employEvent);
         model.put("employEvent", employEvent);
-        Collection<Event> eventOptions = clinicService.findEventOptions();  
-        model.put("eventOptions", eventOptions);
         return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
     }
 
     @RequestMapping(value = "/employEvents/new", method = RequestMethod.POST)
     public String processCreationForm(Employee employee, @Valid EmployEvent employEvent, BindingResult result, ModelMap model) {
-        if (StringUtils.hasLength(employEvent.getName()) && employEvent.isNew() && employee.getEmployEvent(employEvent.getName(), true) != null){
+        if (StringUtils.hasLength(employEvent.getEvent().getName()) && employEvent.isNew() && employee.getEmployEvent(employEvent.getEvent().getName(), true) != null){
             result.rejectValue("name", "duplicate", "already exists");
         }
         if (result.hasErrors()) {
             model.put("employEvent", employEvent);
-            Collection<Event> eventOptions = clinicService.findEventOptions();  
-            model.put("eventOptions", eventOptions);
             return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
         } else {
             employee.addEmployEvent(employEvent);
@@ -101,8 +97,6 @@ public class EmployEventController {
     public String initUpdateForm(@PathVariable("employEventId") int employEventId, ModelMap model) {
         EmployEvent employEvent = this.clinicService.findEmployEventById(employEventId);
         model.put("employEvent", employEvent);
-        Collection<Event> eventOptions = clinicService.findEventOptions();  
-        model.put("eventOptions", eventOptions);
         return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
     }
 
@@ -110,8 +104,6 @@ public class EmployEventController {
     public String processUpdateForm(@Valid EmployEvent employEvent, BindingResult result, Employee employee, ModelMap model) {
         if (result.hasErrors()) {
             model.put("employEvent", employEvent);
-            Collection<Event> eventOptions = clinicService.findEventOptions();  
-            model.put("eventOptions", eventOptions);
             return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
         } else {
             employee.addEmployEvent(employEvent);

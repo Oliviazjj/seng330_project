@@ -10,7 +10,6 @@
             <c:if test="${employEvent['new']}">New </c:if> EmployeeEvent
         </h2>
         <form:form modelAttribute="employEvent"
-        			   modelAttribute="eventOptions"
                    class="form-horizontal">
             <input type="hidden" name="id" value="${employEvent.id}"/>
             <div class="form-group has-feedback">
@@ -20,9 +19,8 @@
                         <c:out value="${employEvent.employee.firstName} ${employEvent.employee.lastName}"/>
                     </div>
                 </div>
-                <petclinic:inputField label="Name" name="name"/>
                 <div class="control-group">
-                    <petclinic:selectField name="eventOptions" label="Event Options" names="${eventOptions}" size="100"/>
+                    <petclinic:selectField name="event" label="Event Options" names="${eventOptions}" size="10"/>
                 </div>
             </div>
             <div class="form-group">

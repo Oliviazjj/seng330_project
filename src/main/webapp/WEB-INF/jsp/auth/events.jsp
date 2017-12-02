@@ -6,7 +6,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 
-<petclinic:layout2 pageName="events">
+<petclinic:layout2 pageName="eventList">
     <h2>Events</h2>
 	<jsp:body>
     <table id="eventsTable" class="table table-striped">

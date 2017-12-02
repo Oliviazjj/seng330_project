@@ -59,7 +59,6 @@ public class JpaFoodRepositoryImpl implements FoodRepository {
     }
     
     @Override
-    @SuppressWarnings("unchecked")
     public Food findById(Integer foodId) {
         Query query = this.em.createQuery("SELECT v FROM Food v where v.id= :id");
         query.setParameter("id", foodId);

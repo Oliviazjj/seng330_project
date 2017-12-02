@@ -22,7 +22,8 @@ public class JpaUserRepositoryImpl implements UserRepository {
         return this.em.find(User.class, id);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public User login(String username, String password) throws DataAccessException {
         Query query = this.em.createQuery("FROM User u where u.username = :username AND u.password = :password");
         query.setParameter("username", username);
