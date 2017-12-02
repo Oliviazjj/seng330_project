@@ -33,13 +33,13 @@
                     <c:out value="${contact.email}"/>
                 </td>
                 <td>
-                		<spring:url value="contacts/{contactId}/edit.html" var="editUrl">
+                		<spring:url value="contacts/{contactId}/edit" var="editUrl">
         				<spring:param name="contactId" value="${contact.id}"/>
     					</spring:url>
    					<a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit</a>
 				</td>
 				<td>
-                		<spring:url value="contacts/{contactId}/delete.html" var="deleteUrl">
+                		<spring:url value="contacts/{contactId}/delete" var="deleteUrl">
         				<spring:param name="contactId" value="${contact.id}"/>
     					</spring:url>
    					<a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Delete</a>

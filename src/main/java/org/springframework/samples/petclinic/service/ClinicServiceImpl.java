@@ -159,8 +159,6 @@ public class ClinicServiceImpl implements ClinicService {
 		return userRepository.findById(userId);
 	}
 
-	
-
 	@Override
 	public Event findEventById(int eventId) {
 		return eventRepository.findById(eventId);

@@ -21,8 +21,7 @@ public class Event extends NamedEntity {
 
 	 @NotNull
 	 @Column(name = "amountOfPeople")
-	 private int amountOfPeople;
-	
+	 private int amountOfPeople;	
 	
 	@Column(name = "event_date")
     @Temporal(TemporalType.DATE)
@@ -49,15 +48,11 @@ public class Event extends NamedEntity {
     @Column(name = "description")
     private String description;
    
-    
-   
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
     
     
-
     public void setEventDate(Date eventDate) {
         this.eventDate = eventDate;
     }
