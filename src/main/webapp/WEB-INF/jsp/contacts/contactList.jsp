@@ -18,7 +18,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${contacts.contactList}" var="contact">
+        <c:forEach items="${contacts}" var="contact">
             <tr>
                 <td>
                     <c:out value="${contact.firstName} ${contact.lastName}"/>

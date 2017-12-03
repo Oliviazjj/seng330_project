@@ -11,7 +11,7 @@
     <h2>Employees</h2>
     <br />
     <a class="btn btn-default" href='<spring:url value="/employees/new" htmlEscape="true"/>'>Add Employee</a>
-    <h3> Please click employee name to see the employee details</h3>
+    <h3 style="color: red;"> Please click employee name to see the employee details</h3>
     <br />
     <!--  </div> -->
 

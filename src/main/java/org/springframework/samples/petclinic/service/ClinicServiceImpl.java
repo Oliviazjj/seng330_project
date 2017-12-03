@@ -43,12 +43,15 @@ public class ClinicServiceImpl implements ClinicService {
         this.eventRepository = eventRepository;
     }
 
+    //employeeEvent
     @Override
     @Transactional(readOnly = true)
     public Collection<Event> findEventOptions() throws DataAccessException {
         return employEventRepository.findEventOptions();
     }
 
+    
+    //employee
     @Override
     @Transactional(readOnly = true)
     public Employee findEmployeeById(int id) throws DataAccessException {
@@ -67,19 +70,25 @@ public class ClinicServiceImpl implements ClinicService {
         employeeRepository.save(employee);
     }
 
-
+    //
     @Override
     @Transactional
     public void saveEmployeeShift(EmployeeShift employeeShift) throws DataAccessException {
         employeeShiftRepository.save(employeeShift);
     }
 
-
+    
     @Override
     @Transactional(readOnly = true)
     public EmployEvent findEmployEventById(int id) throws DataAccessException {
         return employEventRepository.findById(id);
     }
+    
+    @Override
+    @Transactional(readOnly = true)
+	public Collection<EmployEvent> findEmployeeEventByEventId(int eventId) {
+    		return employEventRepository.findByEventId(eventId);
+	}
 
     @Override
     @Transactional
@@ -89,7 +98,6 @@ public class ClinicServiceImpl implements ClinicService {
 
     @Override
     @Transactional(readOnly = true)
-    @Cacheable(value = "contacts")
     public Collection<Contact> findContacts() throws DataAccessException {
         return contactRepository.findAll();
     }
@@ -125,6 +133,7 @@ public class ClinicServiceImpl implements ClinicService {
     }
 
 	@Override
+	 @Transactional(readOnly = true)
 	public Collection<EmployeeShift> findEmployeeShiftsByEmployEventId(int employEventId) {
 		return employeeShiftRepository.findByEmployEventId(employEventId);
 	}
@@ -136,6 +145,7 @@ public class ClinicServiceImpl implements ClinicService {
 		 eventRepository.save(event);
 	 }
 	 @Override
+	 @Transactional
 	 public Collection<Event> findEventsByUserId(int userId) {
 		return eventRepository.findByUserId(userId);
 	}
@@ -144,6 +154,7 @@ public class ClinicServiceImpl implements ClinicService {
 //	User Part
 
     @Override
+    @Transactional
     public User login(String username, String password) {
         return userRepository.login(username, password);
     }
@@ -160,28 +171,35 @@ public class ClinicServiceImpl implements ClinicService {
 	}
 
 	@Override
+	@Transactional
 	public Event findEventById(int eventId) {
 		return eventRepository.findById(eventId);
 	}
 
 	@Override
+	@Transactional
 	public Collection<Event> findAllEvent() throws DataAccessException {
 		return eventRepository.findAll();
 	}
 
 	@Override
+	@Transactional
 	public Inventory findInventoryById(int inventoryId) {
 		return inventoryRepository.findById(inventoryId);
 	}
 
 	@Override
+	@Transactional
 	public Food findFoodById(int foodId) {
 		return foodRepository.findById(foodId);
 	}
 
 	@Override
+	@Transactional
 	public Contact findContactById(int contactId) {
 		return contactRepository.findById(contactId);
 	}
+
+	
 
 }

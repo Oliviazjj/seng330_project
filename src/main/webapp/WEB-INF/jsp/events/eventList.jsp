@@ -12,7 +12,8 @@
     <spring:url value="events/new" var="addUrl">
     </spring:url>
     <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Add New Event</a>
-
+	<h3 style="color: red;"> Please click event name to see the event details and employee shifts for that event</h3>
+    <br />
     <table id="eventsTable" class="table table-striped">
         <thead>
         <tr>

@@ -22,7 +22,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Contact;
-import org.springframework.samples.petclinic.model.Contacts;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,10 +50,7 @@ public class ContactController {
 
     @RequestMapping(value = { "/contacts"})
     public String showContactList(Map<String, Object> model) {
-        // Here we are returning an object of type 'Contacts' rather than a collection of Contact objects
-        // so it is simpler for Object-Xml mapping
-        Contacts contacts = new Contacts();
-        contacts.getContactList().addAll(this.clinicService.findContacts());
+        Collection<Contact> contacts = this.clinicService.findContacts();
         model.put("contacts", contacts);
         return "contacts/contactList";
     }
@@ -81,7 +77,7 @@ public class ContactController {
     }
 
 
-    @RequestMapping(value = "/contactss/{contactId}/edit", method = RequestMethod.GET)
+    @RequestMapping(value = "/contacts/{contactId}/edit", method = RequestMethod.GET)
     public String initUpdateContactForm(@PathVariable("contactId") int contactId, Model model) {
         Contact contact = this.clinicService.findContactById(contactId);
         model.addAttribute(contact);

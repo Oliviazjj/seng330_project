@@ -1,5 +1,5 @@
-INSERT INTO users VALUES (1, 'admin', 'admin','user1@gmail.com');
-INSERT INTO users VALUES (2, 'op', 'po','user2@gmail.com');
+INSERT INTO users VALUES (1, 'admin', 'admin','user1@gmail.com','Kitty', 'Brown');
+INSERT INTO users VALUES (2, 'op', 'po','user2@gmail.com','Kelvin','Cheng');
 
 INSERT INTO events VALUES(1,'birthdayParty', 100, '2017-09-07', '300 graden street', 'greenSalad','steak','vanillaIceCream','GF',1);
 INSERT INTO events VALUES(2,'conference', 100, '2017-09-07', 'city conference center', 'gardenSalad','burger','cocoIceCream','GF',2);
@@ -44,21 +44,27 @@ INSERT INTO employees VALUES (8, 'Maria', 'Escobito', '345 Maple St.', 'Madison'
 INSERT INTO employees VALUES (9, 'David', 'Schroeder', '2749 Blackhawk Trail', 'Madison', '6085559435');
 INSERT INTO employees VALUES (10, 'Carlos', 'Estaban', '2335 Independence La.', 'Waunakee', '6085555487');
 
-INSERT INTO employEvents VALUES (1, 'Leo', '2010-09-07', 1, 1);
-INSERT INTO employEvents VALUES (2, 'Basil', '2012-08-06', 2, 2);
-INSERT INTO employEvents VALUES (3, 'Rosy', '2011-04-17', 1, 3);
-INSERT INTO employEvents VALUES (4, 'Jewel', '2010-03-07', 2, 3);
-INSERT INTO employEvents VALUES (5, 'Iggy', '2010-11-30', 2, 4);
-INSERT INTO employEvents VALUES (6, 'George', '2010-01-20', 1, 5);
-INSERT INTO employEvents VALUES (7, 'Samantha', '2012-09-04', 2, 6);
-INSERT INTO employEvents VALUES (8, 'Max', '2012-09-04', 1, 6);
-INSERT INTO employEvents VALUES (9, 'Lucky', '2011-08-06', 2, 7);
-INSERT INTO employEvents VALUES (10, 'Mulligan', '2007-02-24', 1, 8);
-INSERT INTO employEvents VALUES (11, 'Freddy', '2010-03-09', 2, 9);
-INSERT INTO employEvents VALUES (12, 'Lucky', '2010-06-24', 2, 10);
-INSERT INTO employEvents VALUES (13, 'Sly', '2012-06-08', 1, 10);
+INSERT INTO employEvents VALUES (1, '2010-09-07', 1, 1);
+INSERT INTO employEvents VALUES (2, '2012-08-06', 2, 2);
+INSERT INTO employEvents VALUES (3, '2011-04-17', 1, 3);
+INSERT INTO employEvents VALUES (4, '2010-03-07', 2, 3);
+INSERT INTO employEvents VALUES (5, '2010-11-30', 2, 4);
+INSERT INTO employEvents VALUES (6, '2010-01-20', 1, 5);
+INSERT INTO employEvents VALUES (7, '2012-09-04', 2, 6);
+INSERT INTO employEvents VALUES (8, '2012-09-04', 1, 6);
+INSERT INTO employEvents VALUES (9, '2011-08-06', 2, 7);
+INSERT INTO employEvents VALUES (10,	'2007-02-24', 1, 8);
+INSERT INTO employEvents VALUES (11, '2010-03-09', 2, 9);
+INSERT INTO employEvents VALUES (12, '2010-06-24', 2, 10);
+INSERT INTO employEvents VALUES (13,	'2012-06-08', 1, 10);
 
-INSERT INTO employeeShifts VALUES (1, 7, '2013-01-01', 'rabies shot');
-INSERT INTO employeeShifts VALUES (2, 8, '2013-01-02', 'rabies shot');
-INSERT INTO employeeShifts VALUES (3, 8, '2013-01-03', 'neutered');
-INSERT INTO employeeShifts VALUES (4, 7, '2013-01-04', 'spayed');
+INSERT INTO employeeShifts VALUES (1, 4, '2013-01-01', '3-7pm, 3-10pm');
+INSERT INTO employeeShifts VALUES (2, 8, '2013-01-02', '8-11am, 2-5pm');
+INSERT INTO employeeShifts VALUES (3, 7, '2013-01-03', 'full day');
+INSERT INTO employeeShifts VALUES (4, 6, '2013-01-04', '10am-6pm');
+INSERT INTO employeeShifts VALUES (5, 5, '2013-01-04', '7am-1pm');
+INSERT INTO employeeShifts VALUES (6, 4, '2013-01-01', '3-7pm, 3-10pm');
+INSERT INTO employeeShifts VALUES (7, 4, '2013-01-02', '8-11am, 2-5pm');
+INSERT INTO employeeShifts VALUES (8, 3, '2013-01-03', 'full day');
+INSERT INTO employeeShifts VALUES (9, 2, '2013-01-04', '10am-6pm');
+INSERT INTO employeeShifts VALUES (10, 1, '2013-01-04', '7am-1pm');

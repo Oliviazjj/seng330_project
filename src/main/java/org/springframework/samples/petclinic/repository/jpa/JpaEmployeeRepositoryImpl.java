@@ -60,7 +60,7 @@ public class JpaEmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public Employee findById(int id) {
-        // using 'join fetch' because a single query should load both employees and employees
+        // using 'join fetch' because a single query should load both employees and events
         // using 'left join fetch' because it might happen that an employee does not have employees yet
         Query query = this.em.createQuery("SELECT employee FROM Employee employee left join fetch employee.employEvents WHERE employee.id =:id");
         query.setParameter("id", id);

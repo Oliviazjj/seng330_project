@@ -23,8 +23,30 @@ public class User extends BaseEntity {
     @Column(name = "username")
     @NotEmpty
     private String username;
+    
+    @Column(name = "last_name")
+    private String lastName;
+    
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "password")
+    public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	@Column(name = "password")
     @NotEmpty
     private String password;
     

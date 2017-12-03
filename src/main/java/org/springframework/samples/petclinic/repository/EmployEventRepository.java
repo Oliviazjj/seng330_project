@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -57,5 +58,7 @@ public interface EmployEventRepository {
      * @see BaseEntity#isNew
      */
     void save(EmployEvent employEvent) throws DataAccessException;
+
+	Collection<EmployEvent> findByEventId(int eventId);
 
 }

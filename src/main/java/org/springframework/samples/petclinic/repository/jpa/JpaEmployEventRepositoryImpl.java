@@ -15,10 +15,12 @@
  */
 package org.springframework.samples.petclinic.repository.jpa;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.samples.petclinic.model.EmployEvent;
 import org.springframework.samples.petclinic.model.EmployEventType;
@@ -60,5 +62,13 @@ public class JpaEmployEventRepositoryImpl implements EmployEventRepository {
             this.em.merge(employEvent);
         }
     }
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public Collection<EmployEvent> findByEventId(int eventId) {		
+		Query query = this.em.createQuery("SELECT employEvent FROM EmployEvent employEvent WHERE employEvent.event.id= :eventId ORDER BY employEvent.event.name");
+        query.setParameter("eventId", eventId);
+        return query.getResultList();
+	}
 
 }

@@ -80,11 +80,9 @@ public class EmployEventController {
 
     @RequestMapping(value = "/employEvents/new", method = RequestMethod.POST)
     public String processCreationForm(Employee employee, @Valid EmployEvent employEvent, BindingResult result, ModelMap model) {
-        if (StringUtils.hasLength(employEvent.getEvent().getName()) && employEvent.isNew() && employee.getEmployEvent(employEvent.getEvent().getName(), true) != null){
-            result.rejectValue("name", "duplicate", "already exists");
-        }
         if (result.hasErrors()) {
             model.put("employEvent", employEvent);
+            employee.addEmployEvent(employEvent);
             return VIEWS_EMPLOYEVENTS_CREATE_OR_UPDATE_FORM;
         } else {
             employee.addEmployEvent(employEvent);

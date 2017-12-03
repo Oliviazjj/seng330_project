@@ -7,7 +7,7 @@
 <petclinic:layout pageName="employees">
     <jsp:body>
         <h2>
-            <c:if test="${employEvent['new']}">New </c:if> EmployeeEvent
+            <c:if test="${employEvent['new']}">New </c:if> Employee Event
         </h2>
         <form:form modelAttribute="employEvent"
                    class="form-horizontal">
@@ -20,17 +20,17 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <petclinic:selectField name="event" label="Event Options" names="${eventOptions}" size="10"/>
+                    <petclinic:selectField name="event" label="Event Options" names="${eventOptions}" size="5"/>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <c:choose>
                         <c:when test="${employEvent['new']}">
-                            <button class="btn btn-default" type="submit">Add EmployEvent</button>
+                            <button class="btn btn-default" type="submit">Add New Event To Employee</button>
                         </c:when>
                         <c:otherwise>
-                            <button class="btn btn-default" type="submit">Update EmployEvent</button>
+                            <button class="btn btn-default" type="submit">Update Employee Event</button>
                         </c:otherwise>
                     </c:choose>
                 </div>

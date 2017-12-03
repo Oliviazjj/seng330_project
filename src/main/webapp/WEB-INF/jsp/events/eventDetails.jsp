@@ -30,7 +30,7 @@
         <tbody>
             <tr>
             	<td>
-               <spring:url value="/events/{eventId}.html" var="eventUrl">
+               <spring:url value="{eventId}.html" var="eventUrl">
                   <spring:param name="eventId" value="${event.id}"/>
                   </spring:url>
                   <a href="${fn:escapeXml(eventUrl)}"><c:out value="${event.name}"/></a>
@@ -43,7 +43,7 @@
                 <td><c:out value="${event.dessert}"/></td>
                 <td><c:out value="${event.description}"/></td>
                 <td>
-                		<spring:url value="events/{eventId}/edit.html" var="editUrl">
+                		<spring:url value="{eventId}/edit.html" var="editUrl">
         				<spring:param name="eventId" value="${event.id}"/>
     					</spring:url>
    					<a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit</a>
@@ -57,23 +57,11 @@
     <table class="table table-striped">
         <tr>
             <th>Name</th>
-            <td><b><c:out value="${user.firstName} ${user.lastName}"/></b></td>
+            <td><b><c:out value="${event.user.firstName} ${event.user.lastName}"/></b></td>
         </tr>
-        <%-- <tr>
-            <th>Address</th>
-            <td><c:out value="${employee.address}"/></td>
-        </tr>
-        <tr>
-            <th>City</th>
-            <td><c:out value="${employee.city}"/></td>
-        </tr>
-        <tr>
-            <th>Telephone</th>
-            <td><c:out value="${employee.telephone}"/></td>
-        </tr> --%>
         <tr>
             <th>Email</th>
-            <td><b><c:out value="${user.email}"/></b></td>
+            <td><b><c:out value="${event.user.email}"/></b></td>
         </tr>
         </tbody>
     </table>
@@ -84,22 +72,29 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>date</th>
-            <th>description</th>
+            <th>Employee Name</th>
+            <th>Phone Number</th>
+            <th>Shift Date</th>
+            <th>Shift Description</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach items="${employeeShifts}" var="employeeShift">
+        <c:forEach items="${employeeEvents}" var="employeeEvent">
+        		<c:forEach items="${employeeEvent.employeShifts}" var="employeeShift">
             <tr>
                 <td>
-                    <c:out value="${employeeShift.date} "/>
+                    <c:out value="${employeeEvent.employee.firstName} ${employeeEvent.employee.lastName}"/>
                 </td>
                 <td>
-                    <c:out value="${employeeShifts.description} "/>
+                    <c:out value="${employeeEvent.employee.telephone} "/>
                 </td>
-              	<td><fmt:formatDate value="${food.expireDate}" pattern="yyyy/MM/dd"/></td> 
+              	<td><fmt:formatDate value="${employeeShift.date}" pattern="yyyy/MM/dd"/></td> 
+              	<td>
+                    <c:out value="${employeeShift.description} "/>
+                </td>
               	
             </tr>
+            </c:forEach>>
         </c:forEach>
         </tbody>
     </table>

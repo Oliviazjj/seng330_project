@@ -17,6 +17,8 @@
                    autofocus="true"/>
             <input name="password" type="password" class="form-control" placeholder="Password"/>
             <input name="email" type="email" class="form-control" placeholder="Email"/>
+            <input name="firstName" type="text" class="form-control" placeholder="FirstName"/>
+            <input name="lastName" type="text" class="form-control" placeholder="LastName"/>
             <span>${error}</span>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>

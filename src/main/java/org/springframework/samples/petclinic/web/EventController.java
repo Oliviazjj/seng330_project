@@ -30,6 +30,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -59,14 +60,6 @@ public class EventController {
     public void initUserBinder(WebDataBinder dataBinder) {
         dataBinder.setDisallowedFields("id");
     }
-
-
-//    @RequestMapping(value = "/{userId}/events", method = RequestMethod.GET)
-//    public String displayUserEvents(@PathVariable("userId") int userId, BindingResult result, ModelMap model) {
-//    		Collection<Event> events = this.clinicService.findEventsByUserId(userId);
-//        model.put("events", events);
-//        return "auth/events";
-//    }
     
     
     @RequestMapping(value = "/{userId}/events/new", method = RequestMethod.GET)
@@ -139,6 +132,16 @@ public class EventController {
             this.clinicService.saveEvent(event);
             return "redirect:/events";
         }
+    }
+    
+    @RequestMapping("/events/{eventId}")
+    public ModelAndView showEventDetail(@PathVariable("eventId") int eventId) {
+        ModelAndView mav = new ModelAndView("events/eventDetails");
+        mav.addObject(this.clinicService.findEventById(eventId));
+        Collection<EmployEvent> employeeEvents = this.clinicService.findEmployeeEventByEventId(eventId);
+        mav.addObject(employeeEvents);
+        
+        return mav;
     }
 
     @RequestMapping(value = { "/events"}, method = RequestMethod.GET)

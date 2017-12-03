@@ -64,11 +64,12 @@ public interface ClinicService {
     void saveUser(User user) throws DataAccessException;
     User findUserById(int userId) throws DataAccessException;
     
-    //user events
+    //client events actions
     Collection<Event> findEventsByUserId(int userId) throws DataAccessException;
     void saveEvent(Event event) throws DataAccessException;
     Event findEventById(int eventId) throws DataAccessException;
 	Collection<Event> findAllEvent() throws DataAccessException;
+	Collection<EmployEvent> findEmployeeEventByEventId(int eventId);
 
 	
 

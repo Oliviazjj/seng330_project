@@ -20,6 +20,7 @@
     </h2>
     
     <form:form modelAttribute="event" class="form-horizontal" id="add-event-form">
+    		<input type="hidden" name="id" value="${event.id}"/>
         <div class="form-group has-feedback">
             <petclinic:inputField label="Name" name="name"/>
             <petclinic:inputField label="AmountOfPeople" name="amountOfPeople"/>
