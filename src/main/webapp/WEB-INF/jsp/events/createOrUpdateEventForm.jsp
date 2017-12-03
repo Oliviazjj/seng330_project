@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="events">
+<mealOnWheel:layout pageName="events">
 	<jsp:attribute name="customScript">
         <script>
             $(function () {
@@ -22,14 +22,14 @@
     <form:form modelAttribute="event" class="form-horizontal" id="add-event-form">
     		<input type="hidden" name="id" value="${event.id}"/>
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Name" name="name"/>
-            <petclinic:inputField label="AmountOfPeople" name="amountOfPeople"/>
-            <petclinic:inputField label="eventDate" name="eventDate"/>
-            <petclinic:inputField label="Location" name="location"/>
-            <petclinic:inputField label="Appetizer" name="appetizer"/>
-            <petclinic:inputField label="Entree" name="entree"/>
-            <petclinic:inputField label="Dessert" name="dessert"/>
-            <petclinic:inputField label="Description" name="description"/>
+            <mealOnWheel:inputField label="Name" name="name"/>
+            <mealOnWheel:inputField label="AmountOfPeople" name="amountOfPeople"/>
+            <mealOnWheel:inputField label="eventDate" name="eventDate"/>
+            <mealOnWheel:inputField label="Location" name="location"/>
+            <mealOnWheel:inputField label="Appetizer" name="appetizer"/>
+            <mealOnWheel:inputField label="Entree" name="entree"/>
+            <mealOnWheel:inputField label="Dessert" name="dessert"/>
+            <mealOnWheel:inputField label="Description" name="description"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -45,4 +45,4 @@
         </div>
     </form:form>
     </jsp:body>
-</petclinic:layout>
+</mealOnWheel:layout>

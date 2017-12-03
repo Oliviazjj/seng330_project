@@ -3,9 +3,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="employees">
+<mealOnWheel:layout pageName="employees">
 
     <h2>Find Employees</h2>
 
@@ -32,4 +32,4 @@
     <br/>
     <a class="btn btn-default" href='<spring:url value="/employees/new" htmlEscape="true"/>'>Add Employee</a>
     <a class="btn btn-default" href='<spring:url value="/employees.html?lastName=" htmlEscape="true"/>'>Show All Employees</a>
-</petclinic:layout>
+</mealOnWheel:layout>

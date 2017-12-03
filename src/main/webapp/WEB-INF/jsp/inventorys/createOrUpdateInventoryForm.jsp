@@ -4,9 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="inventorys">
+<mealOnWheel:layout pageName="inventorys">
 	<jsp:attribute name="customScript">
         <script>
             $(function () {
@@ -20,10 +20,10 @@
     </h2>
     <form:form modelAttribute="inventory" class="form-horizontal" id="add-inventory-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="Name" name="name"/>
-            <petclinic:inputField label="Type" name="type"/>
-            <petclinic:inputField label="Amount" name="amount"/>
-            <petclinic:inputField label="Date" name="purchaseDate"/>
+            <mealOnWheel:inputField label="Name" name="name"/>
+            <mealOnWheel:inputField label="Type" name="type"/>
+            <mealOnWheel:inputField label="Amount" name="amount"/>
+            <mealOnWheel:inputField label="Date" name="purchaseDate"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -39,4 +39,4 @@
         </div>
     </form:form>
     </jsp:body>
-</petclinic:layout>
+</mealOnWheel:layout>

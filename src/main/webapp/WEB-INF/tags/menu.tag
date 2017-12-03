@@ -1,6 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 <%@ attribute name="name" required="true" rtexprvalue="true"
               description="Name of the active menu: home, employees, contacts, events, foods and inventorys" %>
 
@@ -18,38 +18,38 @@
         <div class="navbar-collapse collapse" id="main-navbar">
             <ul class="nav navbar-nav navbar-right">
 
-                <petclinic:menuItem active="${name eq 'home'}" url="/" title="home page">
+                <mealOnWheel:menuItem active="${name eq 'home'}" url="/" title="home page">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     <span>Home</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
 
-                <petclinic:menuItem active="${name eq 'employees'}" url="/employees/find.html" title="find employees">
+                <mealOnWheel:menuItem active="${name eq 'employees'}" url="/employees/find.html" title="find employees">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                     <span>Find employees</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
 
-                <petclinic:menuItem active="${name eq 'contacts'}" url="/contacts.html" title="contacts">
+                <mealOnWheel:menuItem active="${name eq 'contacts'}" url="/contacts.html" title="contacts">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Contacts</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
 
-                <petclinic:menuItem active="${name eq 'events'}" url="/events"
+                <mealOnWheel:menuItem active="${name eq 'events'}" url="/events"
                             title="events">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Events</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
                 
-                <petclinic:menuItem active="${name eq 'foods'}" url="/foods"
+                <mealOnWheel:menuItem active="${name eq 'foods'}" url="/foods"
                             title="foods">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Food</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
                 
-                <petclinic:menuItem active="${name eq 'inventorys'}" url="/inventorys"
+                <mealOnWheel:menuItem active="${name eq 'inventorys'}" url="/inventorys"
                             title="Inventorys">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Inventory</span>
-                </petclinic:menuItem>
+                </mealOnWheel:menuItem>
 
             </ul>
         </div>

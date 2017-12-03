@@ -3,10 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
 
-<petclinic:layout2 pageName="eventList">
+<mealOnWheel:layout2 pageName="eventList">
     <h2>Events</h2>
 	<jsp:body>
     <table id="eventsTable" class="table table-striped">
@@ -36,6 +36,6 @@
         </tbody>
     </table>
     </jsp:body>
-</petclinic:layout2>
+</mealOnWheel:layout2>
 
 

@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
 
-<petclinic:layout pageName="employees">
+<mealOnWheel:layout pageName="employees">
     <jsp:attribute name="customScript">
         <script>
             $(function () {
@@ -35,8 +35,8 @@
 
         <form:form modelAttribute="employeeShift" class="form-horizontal">
             <div class="form-group has-feedback">
-                <petclinic:inputField label="Date" name="date"/>
-                <petclinic:inputField label="Description of shift time slot" name="description"/>
+                <mealOnWheel:inputField label="Date" name="date"/>
+                <mealOnWheel:inputField label="Description of shift time slot" name="description"/>
             </div>
 
             <div class="form-group">
@@ -65,4 +65,4 @@
         </table>
     </jsp:body>
 
-</petclinic:layout>
+</mealOnWheel:layout>

@@ -2,9 +2,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="employees">
+<mealOnWheel:layout pageName="employees">
     <jsp:body>
         <h2>
             <c:if test="${employEvent['new']}">New </c:if> Employee Event
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <petclinic:selectField name="event" label="Event Options" names="${eventOptions}" size="5"/>
+                    <mealOnWheel:selectField name="event" label="Event Options" names="${eventOptions}" size="5"/>
                 </div>
             </div>
             <div class="form-group">
@@ -39,4 +39,4 @@
         <c:if test="${!employEvent['new']}">
         </c:if>
     </jsp:body>
-</petclinic:layout>
+</mealOnWheel:layout>

@@ -4,19 +4,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout pageName="employees">
+<mealOnWheel:layout pageName="employees">
     <h2>
         <c:if test="${employee['new']}">New </c:if> Employee
     </h2>
     <form:form modelAttribute="employee" class="form-horizontal" id="add-employee-form">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="First Name" name="firstName"/>
-            <petclinic:inputField label="Last Name" name="lastName"/>
-            <petclinic:inputField label="Address" name="address"/>
-            <petclinic:inputField label="City" name="city"/>
-            <petclinic:inputField label="Telephone" name="telephone"/>
+            <mealOnWheel:inputField label="First Name" name="firstName"/>
+            <mealOnWheel:inputField label="Last Name" name="lastName"/>
+            <mealOnWheel:inputField label="Address" name="address"/>
+            <mealOnWheel:inputField label="City" name="city"/>
+            <mealOnWheel:inputField label="Telephone" name="telephone"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -31,4 +31,4 @@
             </div>
         </div>
     </form:form>
-</petclinic:layout>
+</mealOnWheel:layout>

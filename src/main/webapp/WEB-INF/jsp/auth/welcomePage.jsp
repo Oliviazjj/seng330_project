@@ -15,13 +15,13 @@ h1,h2,h3,h4,h5,h6 {
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="http://localhost:9966/petclinic/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Welcome</a>
+    <a href="http://localhost:9966/mealOnWheel/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Welcome</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="http://localhost:9966/petclinic/login" class="w3-bar-item w3-button">Login</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">Create Event</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">My Event</a>
-      <a href="http://localhost:9966/petclinic/admin" class="w3-bar-item w3-button">Admin</a>
+      <a href="http://localhost:9966/mealOnWheel/login" class="w3-bar-item w3-button">Login</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">Create Event</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">My Event</a>
+      <a href="http://localhost:9966/mealOnWheel/admin" class="w3-bar-item w3-button">Admin</a>
     </div>
   </div>
 </div>
@@ -29,37 +29,6 @@ h1,h2,h3,h4,h5,h6 {
 
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
-
-  <!-- About Section need to finish this -->
-  <!--
-</br>
-</br>
-</br>
-</br>
-<div class="w3-content w3-section" style="max-width:500px">
-  <img class="mySlides" src="Desktop/seng330/src/main/webapp/WEB-INF/jsp/auth/catering.jpg" style="width:100%">
-  <img class="mySlides" src="Desktop/seng330/src/main/webapp/WEB-INF/jsp/auth/catering2.jpg" style="width:100%">
-  <img class="mySlides" src="Desktop/seng330/src/main/webapp/WEB-INF/jsp/auth/catering3.jpg" style="width:100%">
-  <img class="mySlides" src="Desktop/seng330/src/main/webapp/WEB-INF/jsp/auth/catering4.jpg" style="width:100%">
-</div>
-
-<script>
-var myIndex = 0;
-carousel();
-
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2000); // The image will change every 2 seconds
-}
-</script>
--->
     <div class="w3-col m6 w3-padding-large">
    	</br>
    	</br>

@@ -16,13 +16,13 @@ h1,h2,h3,h4,h5,h6 {
  <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="http://localhost:9966/petclinic/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Login</a>
+    <a href="http://localhost:9966/mealOnWheel/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Login</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="http://localhost:9966/petclinic/login" class="w3-bar-item w3-button">Login</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">Create Event</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">My Event</a>
-      <a href="http://localhost:9966/petclinic/admin" class="w3-bar-item w3-button">Admin</a>
+      <a href="http://localhost:9966/mealOnWheel/login" class="w3-bar-item w3-button">Login</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">Create Event</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">My Event</a>
+      <a href="http://localhost:9966/mealOnWheel/admin" class="w3-bar-item w3-button">Admin</a>
     </div>
   </div>
 </div>

@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
 
 <!DOCTYPE html>
@@ -24,13 +24,13 @@ h1,h2,h3,h4,h5,h6 {
  <!-- Navbar (sit on top) -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <a href="http://localhost:9966/petclinic/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Create an Event</a>
+    <a href="http://localhost:9966/mealOnWheel/#home#home" class="w3-bar-item w3-button">MealsOnWheels - Create an Event</a>
     <!-- Right-sided navbar links. Hide them on small screens -->
     <div class="w3-right w3-hide-small">
-      <a href="http://localhost:9966/petclinic/login" class="w3-bar-item w3-button">Login</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">Create Event</a>
-      <a href="http://localhost:9966/petclinic/userInfo" class="w3-bar-item w3-button">My Event</a>
-      <a href="http://localhost:9966/petclinic/admin" class="w3-bar-item w3-button">Admin</a>
+      <a href="http://localhost:9966/mealOnWheel/login" class="w3-bar-item w3-button">Login</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">Create Event</a>
+      <a href="http://localhost:9966/mealOnWheel/userInfo" class="w3-bar-item w3-button">My Event</a>
+      <a href="http://localhost:9966/mealOnWheel/admin" class="w3-bar-item w3-button">Admin</a>
 
     </div>
   </div>
@@ -161,7 +161,7 @@ h1,h2,h3,h4,h5,h6 {
       <!--
         <p><form:input class="w3-input w3-padding-16" type="datetime-local" placeholder="Date and time" required="required" name="date" value="2017-11-16T20:00" path="eventDate"/></p>
       -->
-      <petclinic:inputField label="Date" name="eventDate"/>
+      <mealOnWheel:inputField label="Date" name="eventDate"/>
 
       <p><form:input class="w3-input w3-padding-16" type="Appetizer" placeholder="Choose an Appetizer" required="required" name="Appetizer" path="appetizer"/></p>
       <p><form:input class="w3-input w3-padding-16" type="Entree" placeholder="Choose an Entree" required="required" name="Entree" path="entree"/></p>

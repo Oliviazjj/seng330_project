@@ -2,9 +2,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="mealOnWheel" tagdir="/WEB-INF/tags" %>
 
-<petclinic:layout2 pageName="register">
+<mealOnWheel:layout2 pageName="register">
 
 <div class="container">
 
@@ -28,4 +28,4 @@
 
 </div>
 
-</petclinic:layout2>
+</mealOnWheel:layout2>
